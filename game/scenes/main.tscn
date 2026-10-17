@@ -1,12 +1,26 @@
 [gd_scene format=3 uid="uid://dc1k8c1u03wl2"]
 
 [ext_resource type="Script" uid="uid://dvjnp03qo10wv" path="res://scripts/player.gd" id="1_tbgi4"]
+[ext_resource type="Script" uid="uid://b5om17iyx8ye0" path="res://scripts/main.gd" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://byaeh6ahs4sw7" path="res://scenes/output_port.tscn" id="3_tipki"]
 [ext_resource type="PackedScene" uid="uid://cnjbj6uejr56e" path="res://scenes/input_port.tscn" id="4_85g3d"]
 [ext_resource type="PackedScene" uid="uid://r2y041fo0bby" path="res://scenes/wire.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cw2cirah7xdc0" path="res://scenes/levels/level_1.tscn" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://dofoi167hatt1" path="res://scripts/screens/pause_screen.gd" id="7_o6xl0"]
+[ext_resource type="Theme" uid="uid://cjmuympwmgir7" path="res://themes/button_theme.tres" id="8_tipki"]
+[ext_resource type="StyleBox" uid="uid://bjtvfauwsxb70" path="res://styles/buttons/button_focus_style.tres" id="9_85g3d"]
+[ext_resource type="StyleBox" uid="uid://bgivmmvxrq3fs" path="res://styles/buttons/button_normal_style.tres" id="9_choun"]
+[ext_resource type="StyleBox" uid="uid://yx6egmjdr2ug" path="res://styles/buttons/button_pressed_style.tres" id="10_ya4ey"]
+[ext_resource type="StyleBox" uid="uid://c8bnm3vu4xrbs" path="res://styles/buttons/button_hover_style.tres" id="11_eb6dy"]
+[ext_resource type="Script" uid="uid://xxo0es8kjqtc" path="res://scripts/screens/title_screen.gd" id="13_trceg"]
 
-[node name="Main" type="Node2D" unique_id=1967515149]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ya4ey"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Node2D" unique_id=1967515149 node_paths=PackedStringArray("pause_screen")]
+process_mode = 3
+script = ExtResource("1_tefeu")
+pause_screen = NodePath("PauseScreen")
 
 [node name="Player" type="Node2D" parent="." unique_id=457860793]
 script = ExtResource("1_tbgi4")
@@ -20,3 +34,122 @@ process_callback = 0
 [node name="Levels" type="Node2D" parent="." unique_id=1347675565]
 
 [node name="Level1" parent="Levels" unique_id=1959346673 instance=ExtResource("5_tbgi4")]
+
+[node name="PauseScreen" type="CanvasLayer" parent="." unique_id=1497890181 node_paths=PackedStringArray("title_screen", "resume_button", "quit_button")]
+visible = false
+script = ExtResource("7_o6xl0")
+title_screen = NodePath("../TitleScreen")
+resume_button = NodePath("VBoxContainer/ResumeButton")
+quit_button = NodePath("VBoxContainer/QuitButton")
+
+[node name="ColorRect" type="ColorRect" parent="PauseScreen" unique_id=1036024892]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseScreen" unique_id=1229252601]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 308.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
+
+[node name="HSeparator" type="HSeparator" parent="PauseScreen/VBoxContainer" unique_id=954601363]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxFlat_ya4ey")
+
+[node name="TitleLabel" type="Label" parent="PauseScreen/VBoxContainer" unique_id=1551781185]
+layout_mode = 2
+theme_override_font_sizes/font_size = 200
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PauseScreen/VBoxContainer" unique_id=125333345]
+layout_mode = 2
+theme = ExtResource("8_tipki")
+theme_override_constants/h_separation = 0
+theme_override_styles/normal = ExtResource("9_choun")
+theme_override_styles/pressed = ExtResource("10_ya4ey")
+theme_override_styles/hover = ExtResource("11_eb6dy")
+theme_override_styles/hover_pressed = ExtResource("10_ya4ey")
+theme_override_styles/disabled = ExtResource("9_choun")
+theme_override_styles/focus = ExtResource("9_85g3d")
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="PauseScreen/VBoxContainer" unique_id=71978203]
+layout_mode = 2
+theme = ExtResource("8_tipki")
+theme_override_constants/h_separation = 0
+theme_override_styles/normal = ExtResource("9_choun")
+theme_override_styles/pressed = ExtResource("10_ya4ey")
+theme_override_styles/hover = ExtResource("11_eb6dy")
+theme_override_styles/hover_pressed = ExtResource("10_ya4ey")
+theme_override_styles/disabled = ExtResource("9_choun")
+theme_override_styles/focus = ExtResource("9_85g3d")
+text = "Quit"
+
+[node name="TitleScreen" type="CanvasLayer" parent="." unique_id=1159122221 node_paths=PackedStringArray("start_button", "exit_button")]
+script = ExtResource("13_trceg")
+start_button = NodePath("VBoxContainer/StartButton")
+exit_button = NodePath("VBoxContainer/ExitButton")
+
+[node name="ColorRect" type="ColorRect" parent="TitleScreen" unique_id=1514991834]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleScreen" unique_id=2044592572]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 308.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
+
+[node name="HSeparator" type="HSeparator" parent="TitleScreen/VBoxContainer" unique_id=1385399693]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxFlat_ya4ey")
+
+[node name="TitleLabel" type="Label" parent="TitleScreen/VBoxContainer" unique_id=706183881]
+layout_mode = 2
+theme_override_font_sizes/font_size = 200
+text = "Switchpunk"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="TitleScreen/VBoxContainer" unique_id=275550362]
+layout_mode = 2
+theme = ExtResource("8_tipki")
+theme_override_constants/h_separation = 0
+theme_override_styles/normal = ExtResource("9_choun")
+theme_override_styles/pressed = ExtResource("10_ya4ey")
+theme_override_styles/hover = ExtResource("11_eb6dy")
+theme_override_styles/hover_pressed = ExtResource("10_ya4ey")
+theme_override_styles/disabled = ExtResource("9_choun")
+theme_override_styles/focus = ExtResource("9_85g3d")
+text = "Start"
+
+[node name="ExitButton" type="Button" parent="TitleScreen/VBoxContainer" unique_id=169362708]
+layout_mode = 2
+theme = ExtResource("8_tipki")
+theme_override_constants/h_separation = 0
+theme_override_styles/normal = ExtResource("9_choun")
+theme_override_styles/pressed = ExtResource("10_ya4ey")
+theme_override_styles/hover = ExtResource("11_eb6dy")
+theme_override_styles/hover_pressed = ExtResource("10_ya4ey")
+theme_override_styles/disabled = ExtResource("9_choun")
+theme_override_styles/focus = ExtResource("9_85g3d")
+text = "Exit"
+
+[connection signal="pressed" from="PauseScreen/VBoxContainer/ResumeButton" to="PauseScreen" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseScreen/VBoxContainer/QuitButton" to="PauseScreen" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="TitleScreen/VBoxContainer/StartButton" to="TitleScreen" method="_on_start_button_pressed"]
+[connection signal="pressed" from="TitleScreen/VBoxContainer/ExitButton" to="TitleScreen" method="_on_exit_button_pressed"]
