@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://byaeh6ahs4sw7" path="res://scenes/output_port.tscn" id="3_tipki"]
 [ext_resource type="PackedScene" uid="uid://cnjbj6uejr56e" path="res://scenes/input_port.tscn" id="4_85g3d"]
 [ext_resource type="PackedScene" uid="uid://r2y041fo0bby" path="res://scenes/wire.tscn" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://cw2cirah7xdc0" path="res://scenes/levels/level_1.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://daahylqog1jun" path="res://scenes/levels/level_2.tscn" id="6_trceg"]
 [ext_resource type="Script" uid="uid://dofoi167hatt1" path="res://scripts/screens/pause_screen.gd" id="7_o6xl0"]
 [ext_resource type="Theme" uid="uid://cjmuympwmgir7" path="res://themes/button_theme.tres" id="8_tipki"]
 [ext_resource type="StyleBox" uid="uid://bjtvfauwsxb70" path="res://styles/buttons/button_focus_style.tres" id="9_85g3d"]
@@ -33,7 +33,7 @@ process_callback = 0
 
 [node name="Levels" type="Node2D" parent="." unique_id=1347675565]
 
-[node name="Level1" parent="Levels" unique_id=1959346673 instance=ExtResource("5_tbgi4")]
+[node name="Level2" parent="Levels" unique_id=1959346673 instance=ExtResource("6_trceg")]
 
 [node name="PauseScreen" type="CanvasLayer" parent="." unique_id=1497890181 node_paths=PackedStringArray("title_screen", "resume_button", "quit_button")]
 visible = false
