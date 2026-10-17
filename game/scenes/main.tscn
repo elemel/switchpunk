@@ -4,27 +4,29 @@
 [ext_resource type="StyleBox" uid="uid://da3cp4cmwmv88" path="res://styles/board_style.tres" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://dvjnp03qo10wv" path="res://scripts/player.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/modules/output_terminal.tscn" id="2_0wfyh"]
-[ext_resource type="Script" uid="uid://c7xobvt6lqehn" path="res://scripts/handle.gd" id="2_o6xl0"]
 [ext_resource type="Script" uid="uid://dmsna1rt3wpv4" path="res://scripts/board.gd" id="2_tefeu"]
+[ext_resource type="PackedScene" uid="uid://byaeh6ahs4sw7" path="res://scenes/output_port.tscn" id="3_tipki"]
+[ext_resource type="PackedScene" uid="uid://cnjbj6uejr56e" path="res://scenes/input_port.tscn" id="4_85g3d"]
 [ext_resource type="PackedScene" uid="uid://r2y041fo0bby" path="res://scenes/wire.tscn" id="4_jyhfs"]
 
 [node name="Main" type="Node2D" unique_id=1967515149]
 
-[node name="Player" type="Node2D" parent="." unique_id=457860793 node_paths=PackedStringArray("drag_handle")]
+[node name="Player" type="Node2D" parent="." unique_id=457860793]
 script = ExtResource("1_tbgi4")
-drag_handle = NodePath("DragHandle")
+wire_scene = ExtResource("4_jyhfs")
+output_port_scene = ExtResource("3_tipki")
+input_port_scene = ExtResource("4_85g3d")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1335329146]
 process_callback = 0
 
-[node name="DragHandle" type="Node2D" parent="Player" unique_id=1981959347]
-script = ExtResource("2_o6xl0")
+[node name="Boards" type="Node2D" parent="." unique_id=1347675565]
 
-[node name="Board" type="Node2D" parent="." unique_id=835748102 node_paths=PackedStringArray("wires")]
+[node name="Board" type="Node2D" parent="Boards" unique_id=835748102 node_paths=PackedStringArray("wires") groups=["boards"]]
 script = ExtResource("2_tefeu")
 wires = NodePath("Wires")
 
-[node name="Panel" type="Panel" parent="Board" unique_id=427849266]
+[node name="Panel" type="Panel" parent="Boards/Board" unique_id=427849266]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -38,27 +40,71 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("1_sugp2")
 
-[node name="Wires" type="Node2D" parent="Board" unique_id=827456205]
+[node name="Wires" type="Node2D" parent="Boards/Board" unique_id=827456205]
 
-[node name="Wire" parent="Board/Wires" unique_id=859978273 node_paths=PackedStringArray("output_port", "input_port") instance=ExtResource("4_jyhfs")]
-output_port = NodePath("../../Modules/InputTerminal/OutputPort")
-input_port = NodePath("../../Modules/OutputTerminal/InputPort")
+[node name="Wire" parent="Boards/Board/Wires" unique_id=859978273 node_paths=PackedStringArray("start_port", "end_port") instance=ExtResource("4_jyhfs")]
+start_port = NodePath("../../Modules/InputTerminal/Port")
+end_port = NodePath("../../Modules/OutputTerminal/Port")
 
-[node name="Modules" type="Node2D" parent="Board" unique_id=2009109371]
+[node name="Line2D" parent="Boards/Board/Wires/Wire" index="0" unique_id=2134926720]
+points = PackedVector2Array(-250, -200, -247.37355, -200, -244.76755, -200, -242.18182, -200, -239.61621, -200, -237.07054, -200, -234.54468, -200, -229.5517, -200, -224.63596, -200, -219.79617, -200, -215.03107, -200, -210.33936, -200, -205.71974, -200, -201.17093, -200, -196.69164, -200, -192.28058, -200, -187.93648, -200, -183.65802, -200, -179.44395, -200, -175.29297, -200, -171.20378, -200, -167.17511, -200, -163.20564, -200, -159.29413, -200, -155.43927, -200, -151.63974, -200, -147.8943, -200, -144.20166, -200, -140.56052, -200, -136.96956, -200, -133.42754, -200, -129.93317, -200, -126.48514, -200.00002, -123.08217, -200, -119.72296, -200, -116.40625, -200, -113.13074, -200, -109.89513, -200, -106.69815, -200, -103.53851, -200, -100.41492, -200.00002, -97.326096, -200, -94.27074, -200, -91.24756, -200, -88.25528, -200, -85.29262, -200, -82.35829, -200, -79.45099, -200, -76.56944, -200.00002, -73.71236, -200, -70.87843, -200, -68.06641, -200, -65.27498, -200, -62.502853, -200, -59.748768, -200, -57.011414, -200, -54.28951, -200.00002, -51.581764, -200, -48.88689, -200, -46.203613, -200.00002, -43.530636, -200.00002, -40.86666, -200.00002, -38.210415, -200.00002, -35.560608, -200.00002, -32.91595, -200.00002, -30.275154, -200.00002, -27.636936, -200, -25, -200.00002, -22.363064, -200.00002, -19.724846, -200.00002, -17.08405, -200.00002, -14.439392, -200.00002, -11.789585, -200.00002, -9.133339, -200.00002, -6.469368, -200, -3.7963867, -200.00002, -1.1131058, -200.00002, 1.5817642, -200.00002, 4.289509, -200.00002, 7.0114136, -200.00002, 9.748768, -200.00002, 12.502861, -200.00002, 15.274977, -200.00003, 18.066406, -200.00002, 20.878435, -200, 23.712349, -200.00002, 26.569437, -200.00002, 29.450989, -200.00002, 32.35829, -200.00002, 35.292625, -200.00002, 38.255287, -200.00002, 41.24756, -200.00002, 44.27073, -200, 47.326088, -200.00002, 50.414925, -200.00002, 53.538513, -200.00002, 56.69815, -200, 59.895134, -200.00002, 63.130737, -200.00002, 66.40625, -200.00002, 69.72296, -200, 73.08216, -200.00002, 76.48514, -200.00002, 79.93317, -200.00002, 83.42754, -200, 86.96957, -200.00002, 90.56051, -200.00003, 94.20166, -200.00002, 97.89431, -200, 101.63975, -200, 105.43926, -200, 109.29413, -200, 113.20564, -200, 117.1751, -200, 121.20378, -200.00002, 125.29297, -200.00002, 129.44395, -200, 133.65802, -200.00002, 137.93648, -200.00002, 142.28058, -200, 146.69164, -200, 151.17093, -200, 155.71974, -200, 160.33936, -200, 165.03107, -200, 169.79617, -200, 174.63596, -200, 179.5517, -200, 184.54468, -200, 187.07054, -200, 189.61621, -200, 192.18182, -200, 194.76755, -200, 197.37355, -200, 200, -200)
 
-[node name="InputTerminal" parent="Board/Modules" unique_id=319058681 instance=ExtResource("1_o5qli")]
-position = Vector2(-500, -200)
-value = 13
+[node name="Wire2" parent="Boards/Board/Wires" unique_id=513386473 node_paths=PackedStringArray("start_port", "end_port") instance=ExtResource("4_jyhfs")]
+start_port = NodePath("../../Modules/InputTerminal2/Port")
+end_port = NodePath("../../Modules/OutputTerminal3/Port")
 
-[node name="Display" parent="Board/Modules/InputTerminal" index="3" unique_id=934708420]
-value = 13
+[node name="Line2D" parent="Boards/Board/Wires/Wire2" index="0" unique_id=2134926720]
+points = PackedVector2Array(-250, 0, -247.12776, 0.00913143, -244.28177, 0.03643035, -241.46178, 0.081753716, -238.6676, 0.14495847, -235.899, 0.22590156, -233.15582, 0.32443994, -230.43784, 0.44043055, -227.74481, 0.57373035, -225.07657, 0.7241963, -222.4329, 0.8916853, -219.8136, 1.0760543, -217.21846, 1.2771604, -214.64726, 1.4948604, -212.09981, 1.7290112, -209.57588, 1.9794699, -207.0753, 2.2460933, -202.14331, 2.8272624, -197.30215, 3.4713738, -192.5502, 4.1772833, -187.88579, 4.9438467, -183.30727, 5.7699194, -178.81296, 6.6543565, -174.40126, 7.5960145, -170.0705, 8.593748, -165.81903, 9.646414, -161.64517, 10.752867, -157.5473, 11.9119625, -153.52377, 13.122556, -149.5729, 14.383504, -145.69307, 15.693662, -141.8826, 17.051884, -138.13988, 18.457027, -134.46321, 19.907948, -130.85095, 21.4035, -127.30145, 22.94254, -123.81309, 24.523922, -120.384186, 26.146503, -117.013084, 27.809137, -113.69815, 29.510683, -110.43772, 31.249994, -107.23013, 33.02593, -104.07378, 34.837337, -100.96695, 36.68308, -97.90804, 38.562008, -94.895386, 40.47298, -91.9273, 42.414852, -89.00218, 44.38648, -86.11835, 46.38671, -83.274155, 48.414417, -80.467964, 50.468437, -77.698105, 52.54764, -74.96294, 54.65087, -72.2608, 56.776997, -69.59004, 58.92486, -66.94902, 61.09332, -64.336075, 63.281242, -61.74956, 65.48747, -59.18782, 67.71087, -56.649204, 69.95029, -54.132065, 72.20458, -51.634747, 74.47261, -49.155594, 76.75323, -46.69296, 79.04529, -44.245186, 81.34764, -41.810635, 83.659164, -39.38764, 85.97868, -36.97456, 88.305084, -34.569736, 90.63719, -32.171524, 92.97389, -29.77826, 95.31401, -27.388302, 97.65643, -25, 99.999985, -22.611698, 102.34355, -20.22174, 104.68596, -17.828476, 107.02609, -15.4302635, 109.36278, -13.02544, 111.6949, -10.612358, 114.021286, -8.189365, 116.34082, -5.754814, 118.65233, -3.307045, 120.95468, -0.8444061, 123.24675, 1.6347427, 125.52736, 4.132065, 127.795395, 6.6492043, 130.04968, 9.18782, 132.28911, 11.7495575, 134.5125, 14.336075, 136.71873, 16.949017, 138.90666, 19.590038, 141.07512, 22.260792, 143.22299, 24.96293, 145.3491, 27.698105, 147.45235, 30.467964, 149.53154, 33.274162, 151.58557, 36.118347, 153.61327, 39.00218, 155.6135, 41.927307, 157.58513, 44.89538, 159.52701, 47.908043, 161.43797, 50.966957, 163.3169, 54.073776, 165.16264, 57.23015, 166.97406, 60.437717, 168.74998, 63.698143, 170.48929, 67.013084, 172.19084, 70.384186, 173.85349, 73.81309, 175.47606, 77.30145, 177.05743, 80.850945, 178.59648, 84.4632, 180.09204, 88.13987, 181.54295, 91.88261, 182.9481, 95.69307, 184.30634, 99.572914, 185.61649, 103.52377, 186.87744, 107.5473, 188.08803, 111.64517, 189.24713, 115.81903, 190.35358, 120.0705, 191.40623, 124.40126, 192.40396, 128.81296, 193.34563, 133.30725, 194.23007, 137.88577, 195.05615, 142.5502, 195.82271, 147.30215, 196.52863, 152.14331, 197.17273, 157.07532, 197.7539, 159.5759, 198.02052, 162.09981, 198.27098, 164.64728, 198.50514, 167.21846, 198.72284, 169.81361, 198.92393, 172.43292, 199.1083, 175.07657, 199.27579, 177.74481, 199.42627, 180.43784, 199.55957, 183.15582, 199.67555, 185.899, 199.7741, 188.66759, 199.85504, 191.46178, 199.91824, 194.28177, 199.96358, 197.12776, 199.99086, 200, 200)
 
-[node name="OutputTerminal" parent="Board/Modules" unique_id=1793810564 instance=ExtResource("2_0wfyh")]
+[node name="Modules" type="Node2D" parent="Boards/Board" unique_id=2009109371]
+
+[node name="InputTerminal" parent="Boards/Board/Modules" unique_id=319058681 instance=ExtResource("1_o5qli")]
+position = Vector2(-400, -200)
+value = 1
+
+[node name="Display" parent="Boards/Board/Modules/InputTerminal" index="3" unique_id=934708420]
+value = 1
+
+[node name="InputTerminal2" parent="Boards/Board/Modules" unique_id=763731651 instance=ExtResource("1_o5qli")]
+position = Vector2(-400, 0)
+value = 2
+
+[node name="Display" parent="Boards/Board/Modules/InputTerminal2" index="3" unique_id=934708420]
+value = 2
+
+[node name="InputTerminal3" parent="Boards/Board/Modules" unique_id=759442200 instance=ExtResource("1_o5qli")]
+position = Vector2(-400, 200)
+value = 3
+
+[node name="Display" parent="Boards/Board/Modules/InputTerminal3" index="3" unique_id=934708420]
+value = 3
+
+[node name="OutputTerminal" parent="Boards/Board/Modules" unique_id=1793810564 instance=ExtResource("2_0wfyh")]
+position = Vector2(400, -200)
+value = 1
+
+[node name="Display" parent="Boards/Board/Modules/OutputTerminal" index="3" unique_id=934708420]
+value = 1
+
+[node name="OutputTerminal2" parent="Boards/Board/Modules" unique_id=2064683793 instance=ExtResource("2_0wfyh")]
+position = Vector2(400, 0)
+value = 2
+
+[node name="Display" parent="Boards/Board/Modules/OutputTerminal2" index="3" unique_id=934708420]
+value = 2
+
+[node name="OutputTerminal3" parent="Boards/Board/Modules" unique_id=559334751 instance=ExtResource("2_0wfyh")]
 position = Vector2(400, 200)
-value = 13
+value = 3
 
-[node name="Display" parent="Board/Modules/OutputTerminal" index="3" unique_id=934708420]
-value = 13
+[node name="Display" parent="Boards/Board/Modules/OutputTerminal3" index="3" unique_id=934708420]
+value = 3
 
-[editable path="Board/Modules/InputTerminal"]
-[editable path="Board/Modules/OutputTerminal"]
+[editable path="Boards/Board/Wires/Wire"]
+[editable path="Boards/Board/Wires/Wire2"]
+[editable path="Boards/Board/Modules/InputTerminal"]
+[editable path="Boards/Board/Modules/InputTerminal2"]
+[editable path="Boards/Board/Modules/InputTerminal3"]
+[editable path="Boards/Board/Modules/OutputTerminal"]
+[editable path="Boards/Board/Modules/OutputTerminal2"]
+[editable path="Boards/Board/Modules/OutputTerminal3"]

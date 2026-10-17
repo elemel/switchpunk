@@ -6,5 +6,5 @@ corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
-shadow_color = Color(1, 1, 1, 0.6)
+shadow_color = Color(1, 1, 1, 0.5)
 shadow_size = 25

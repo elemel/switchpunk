@@ -8,18 +8,19 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23ros"]
 size = Vector2(300, 100)
 
-[node name="InputTerminal" type="Node2D" unique_id=319058681 node_paths=PackedStringArray("display", "output_port")]
+[node name="InputTerminal" type="Node2D" unique_id=319058681 node_paths=PackedStringArray("display", "port")]
 script = ExtResource("1_4aga0")
 display = NodePath("Display")
-output_port = NodePath("OutputPort")
+port = NodePath("Port")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1598399367]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=139686460]
 shape = SubResource("RectangleShape2D_23ros")
 
-[node name="OutputPort" parent="." unique_id=2063947181 instance=ExtResource("2_u5na0")]
+[node name="Port" parent="." unique_id=2063947181 node_paths=PackedStringArray("module") instance=ExtResource("2_u5na0")]
 position = Vector2(150, 0)
+module = NodePath("..")
 
 [node name="Panel" type="Panel" parent="." unique_id=2141674358]
 anchors_preset = 8

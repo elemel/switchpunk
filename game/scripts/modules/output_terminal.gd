@@ -2,7 +2,7 @@
 extends Module
 class_name OutputTerminal
 
-@export var input_port: InputPort
+@export var port: InputPort
 @export var lamp: Lamp
 @export var display: Display
 
@@ -42,7 +42,7 @@ func update_lamp() -> void:
 	
 
 func get_input_value() -> int:
-	if input_port == null:
+	if port == null:
 		return 0
 
-	return input_port.value
+	return port.value
