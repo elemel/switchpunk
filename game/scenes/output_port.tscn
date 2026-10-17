@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://byaeh6ahs4sw7"]
+
+[ext_resource type="Script" uid="uid://hhcsctpkdsh0" path="res://scripts/output_port.gd" id="1_r6cv8"]
+[ext_resource type="StyleBox" uid="uid://63wcnscyj00u" path="res://styles/port_style.tres" id="2_g420e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_23ros"]
+radius = 50.0
+
+[node name="OutputPort" type="Node2D" unique_id=2063947181]
+script = ExtResource("1_r6cv8")
+
+[node name="Panel" type="Panel" parent="." unique_id=1503662794]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_g420e")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=109969867]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=57455486]
+shape = SubResource("CircleShape2D_23ros")

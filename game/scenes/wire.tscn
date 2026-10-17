@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://r2y041fo0bby"]
+
+[ext_resource type="Script" uid="uid://cawfsagwhqsgp" path="res://scripts/wire.gd" id="1_oh5q0"]
+
+[node name="Wire" type="Node2D" unique_id=859978273 node_paths=PackedStringArray("line")]
+script = ExtResource("1_oh5q0")
+line = NodePath("Line2D")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=2134926720]
+default_color = Color(0.74648005, 0.86, 0.24079998, 1)

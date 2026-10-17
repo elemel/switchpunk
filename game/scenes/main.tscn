@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dc1k8c1u03wl2"]
+
+[ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/modules/input_terminal.tscn" id="1_o5qli"]
+[ext_resource type="StyleBox" uid="uid://da3cp4cmwmv88" path="res://styles/board_style.tres" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://dvjnp03qo10wv" path="res://scripts/player.gd" id="1_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/modules/output_terminal.tscn" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://c7xobvt6lqehn" path="res://scripts/handle.gd" id="2_o6xl0"]
+[ext_resource type="Script" uid="uid://dmsna1rt3wpv4" path="res://scripts/board.gd" id="2_tefeu"]
+[ext_resource type="PackedScene" uid="uid://r2y041fo0bby" path="res://scenes/wire.tscn" id="4_jyhfs"]
+
+[node name="Main" type="Node2D" unique_id=1967515149]
+
+[node name="Player" type="Node2D" parent="." unique_id=457860793 node_paths=PackedStringArray("drag_handle")]
+script = ExtResource("1_tbgi4")
+drag_handle = NodePath("DragHandle")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1335329146]
+process_callback = 0
+
+[node name="DragHandle" type="Node2D" parent="Player" unique_id=1981959347]
+script = ExtResource("2_o6xl0")
+
+[node name="Board" type="Node2D" parent="." unique_id=835748102 node_paths=PackedStringArray("wires")]
+script = ExtResource("2_tefeu")
+wires = NodePath("Wires")
+
+[node name="Panel" type="Panel" parent="Board" unique_id=427849266]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -825.0
+offset_top = -475.0
+offset_right = 825.0
+offset_bottom = 475.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_sugp2")
+
+[node name="Wires" type="Node2D" parent="Board" unique_id=827456205]
+
+[node name="Wire" parent="Board/Wires" unique_id=859978273 node_paths=PackedStringArray("output_port", "input_port") instance=ExtResource("4_jyhfs")]
+output_port = NodePath("../../Modules/InputTerminal/OutputPort")
+input_port = NodePath("../../Modules/OutputTerminal/InputPort")
+
+[node name="Modules" type="Node2D" parent="Board" unique_id=2009109371]
+
+[node name="InputTerminal" parent="Board/Modules" unique_id=319058681 instance=ExtResource("1_o5qli")]
+position = Vector2(-500, -200)
+value = 13
+
+[node name="Display" parent="Board/Modules/InputTerminal" index="3" unique_id=934708420]
+value = 13
+
+[node name="OutputTerminal" parent="Board/Modules" unique_id=1793810564 instance=ExtResource("2_0wfyh")]
+position = Vector2(400, 200)
+value = 13
+
+[node name="Display" parent="Board/Modules/OutputTerminal" index="3" unique_id=934708420]
+value = 13
+
+[editable path="Board/Modules/InputTerminal"]
+[editable path="Board/Modules/OutputTerminal"]

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://crmbchdgwtooa"]
+
+[ext_resource type="Script" uid="uid://lmf7vmtnsw00" path="res://scripts/modules/input_terminal.gd" id="1_4aga0"]
+[ext_resource type="PackedScene" uid="uid://byaeh6ahs4sw7" path="res://scenes/output_port.tscn" id="2_u5na0"]
+[ext_resource type="StyleBox" uid="uid://dwwmf10i0j7hk" path="res://styles/module_style.tres" id="2_x65dl"]
+[ext_resource type="PackedScene" uid="uid://bjgijke0qlm5j" path="res://scenes/display.tscn" id="3_nihpe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23ros"]
+size = Vector2(300, 100)
+
+[node name="InputTerminal" type="Node2D" unique_id=319058681 node_paths=PackedStringArray("display", "output_port")]
+script = ExtResource("1_4aga0")
+display = NodePath("Display")
+output_port = NodePath("OutputPort")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1598399367]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=139686460]
+shape = SubResource("RectangleShape2D_23ros")
+
+[node name="OutputPort" parent="." unique_id=2063947181 instance=ExtResource("2_u5na0")]
+position = Vector2(150, 0)
+
+[node name="Panel" type="Panel" parent="." unique_id=2141674358]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -50.0
+offset_right = 150.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_x65dl")
+
+[node name="Display" parent="." unique_id=934708420 instance=ExtResource("3_nihpe")]
