@@ -53,13 +53,13 @@ func grab_output_port(port: OutputPort) -> void:
 		dragged_node = wire.start_port
 		return
 
-	var board := find_board()
+	var level := find_level()
 
-	if board == null:
+	if level == null:
 		return
 
 	var new_wire := wire_scene.instantiate() as Wire
-	board.wires.add_child(new_wire)
+	level.wires.add_child(new_wire)
 	new_wire.start_port = port
 
 	var end_port := input_port_scene.instantiate() as InputPort
@@ -83,13 +83,13 @@ func grab_input_port(port: InputPort) -> void:
 		dragged_node = wire.end_port
 		return
 
-	var board := find_board()
+	var level := find_level()
 
-	if board == null:
+	if level == null:
 		return
 
 	var new_wire := wire_scene.instantiate() as Wire
-	board.wires.add_child(new_wire)
+	level.wires.add_child(new_wire)
 	new_wire.end_port = port
 
 	var start_port := output_port_scene.instantiate() as OutputPort
@@ -167,5 +167,5 @@ func find_area(area_position: Vector2, exclude_parent: Node2D = null) -> Area2D:
 	return null
 
 
-func find_board() -> Board:
-	return get_tree().get_first_node_in_group("boards")
+func find_level() -> Level:
+	return get_tree().get_first_node_in_group("levels")
