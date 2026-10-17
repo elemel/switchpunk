@@ -20,7 +20,6 @@ config/icon="res://icon.svg"
 window/size/viewport_width=2400
 window/size/viewport_height=1350
 window/size/mode=3
-window/size/maximize_disabled=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

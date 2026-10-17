@@ -3,11 +3,11 @@ class_name Main
 
 @export var pause_screen: PauseScreen
 
-var is_web := false
+var is_web := OS.has_feature("web")
 
 
 func _ready() -> void:
-	is_web = OS.has_feature("web")
+	RenderingServer.set_default_clear_color(Color.BLACK)
 
 
 func _unhandled_input(event: InputEvent) -> void:
