@@ -94,6 +94,7 @@ theme_override_styles/focus = ExtResource("9_85g3d")
 text = "Quit"
 
 [node name="TitleScreen" type="CanvasLayer" parent="." unique_id=1159122221 node_paths=PackedStringArray("start_button", "exit_button")]
+visible = false
 script = ExtResource("13_trceg")
 start_button = NodePath("VBoxContainer/StartButton")
 exit_button = NodePath("VBoxContainer/ExitButton")

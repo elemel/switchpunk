@@ -11,6 +11,7 @@ func _ready() -> void:
 	if is_web:
 		exit_button.visible = false
 
+	visible = true
 	start_button.grab_focus()
 
 
