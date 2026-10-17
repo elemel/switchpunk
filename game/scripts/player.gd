@@ -159,12 +159,31 @@ func find_area(area_position: Vector2, exclude_parent: Node2D = null) -> Area2D:
 	query.collide_with_areas = true
 	query.collide_with_bodies = false
 	var results := space_state.intersect_point(query)
+	var best_result: Area2D
+	var best_score := 0
 
 	for result in results:
 		if result.collider.get_parent() != exclude_parent:
-			return result.collider as Area2D
+			var area := result.collider as Area2D
+			var score := get_area_score(area)
 
-	return null
+			if score > best_score:
+				best_result = area
+				best_score = score
+
+	return best_result
+
+
+func get_area_score(area: Area2D) -> int:
+	var area_parent := area.get_parent() as Node2D
+
+	if area_parent is InputPort or area_parent is OutputPort:
+		return 2
+
+	if area_parent is Module:
+		return 1
+
+	return 0
 
 
 func find_level() -> Level:
