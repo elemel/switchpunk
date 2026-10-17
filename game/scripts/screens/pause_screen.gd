@@ -30,6 +30,9 @@ func resume() -> void:
 
 
 func _on_quit_button_pressed() -> void:
+	get_tree().paused = false
+	visible = false
+
 	title_screen.visible = true
 	title_screen.start_button.grab_focus()
 	get_viewport().set_input_as_handled()
