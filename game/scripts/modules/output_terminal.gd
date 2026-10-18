@@ -33,13 +33,16 @@ func update_display() -> void:
 
 func update_lamp() -> void:
 	if lamp != null:
-		var input_value := get_input_value()
-
-		if input_value == value:
+		if is_complete():
 			lamp.panel.modulate = Color.GREEN
 		else:
 			lamp.panel.modulate = Color.RED
-	
+
+
+func is_complete() -> bool:
+	var input_value := get_input_value()
+	return input_value == value
+
 
 func get_input_value() -> int:
 	if port == null:

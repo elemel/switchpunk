@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://sisapj6tq7i3"]
+
+[ext_resource type="Script" uid="uid://xxo0es8kjqtc" path="res://scripts/screens/title_screen.gd" id="1_2neum"]
+[ext_resource type="Theme" uid="uid://dyriatstgcby1" path="res://themes/title_theme.tres" id="2_0virr"]
+[ext_resource type="Theme" uid="uid://cjmuympwmgir7" path="res://themes/button_theme.tres" id="3_glmg5"]
+[ext_resource type="StyleBox" uid="uid://bgivmmvxrq3fs" path="res://styles/buttons/button_normal_style.tres" id="4_xciga"]
+[ext_resource type="StyleBox" uid="uid://yx6egmjdr2ug" path="res://styles/buttons/button_pressed_style.tres" id="5_ns73c"]
+[ext_resource type="StyleBox" uid="uid://c8bnm3vu4xrbs" path="res://styles/buttons/button_hover_style.tres" id="6_no1fu"]
+[ext_resource type="StyleBox" uid="uid://bjtvfauwsxb70" path="res://styles/buttons/button_focus_style.tres" id="7_2fruj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ya4ey"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="TitleScreen" type="CanvasLayer" unique_id=1268018315 node_paths=PackedStringArray("main", "start_button", "exit_button")]
+visible = false
+script = ExtResource("1_2neum")
+main = NodePath("")
+start_button = NodePath("VBoxContainer/NewGameButton")
+exit_button = NodePath("VBoxContainer/ExitButton")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1369517267]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1105404539]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 308.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=1428306385]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxFlat_ya4ey")
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=342130328]
+layout_mode = 2
+theme = ExtResource("2_0virr")
+theme_override_font_sizes/font_size = 200
+text = "Switchpunk"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=1793839505]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxFlat_ya4ey")
+
+[node name="NewGameButton" type="Button" parent="VBoxContainer" unique_id=551686183]
+layout_mode = 2
+theme = ExtResource("3_glmg5")
+theme_override_constants/h_separation = 0
+theme_override_styles/normal = ExtResource("4_xciga")
+theme_override_styles/pressed = ExtResource("5_ns73c")
+theme_override_styles/hover = ExtResource("6_no1fu")
+theme_override_styles/hover_pressed = ExtResource("5_ns73c")
+theme_override_styles/disabled = ExtResource("4_xciga")
+theme_override_styles/focus = ExtResource("7_2fruj")
+text = "New Game"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=207999532]
+layout_mode = 2
+theme = ExtResource("3_glmg5")
+theme_override_constants/h_separation = 0
+theme_override_styles/normal = ExtResource("4_xciga")
+theme_override_styles/pressed = ExtResource("5_ns73c")
+theme_override_styles/hover = ExtResource("6_no1fu")
+theme_override_styles/hover_pressed = ExtResource("5_ns73c")
+theme_override_styles/disabled = ExtResource("4_xciga")
+theme_override_styles/focus = ExtResource("7_2fruj")
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

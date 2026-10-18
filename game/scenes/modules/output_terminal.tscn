@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23ros"]
 size = Vector2(400, 100)
 
-[node name="OutputTerminal" type="Node2D" unique_id=319058681 node_paths=PackedStringArray("port", "lamp", "display")]
+[node name="OutputTerminal" type="Node2D" unique_id=319058681 node_paths=PackedStringArray("port", "lamp", "display") groups=["output_terminals"]]
 script = ExtResource("1_5whwe")
 port = NodePath("Port")
 lamp = NodePath("Lamp")
@@ -20,7 +20,7 @@ display = NodePath("Display")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=139686460]
 shape = SubResource("RectangleShape2D_23ros")
 
-[node name="Port" parent="." unique_id=2063947181 node_paths=PackedStringArray("module") groups=["output_terminals"] instance=ExtResource("2_5whwe")]
+[node name="Port" parent="." unique_id=2063947181 node_paths=PackedStringArray("module") instance=ExtResource("2_5whwe")]
 position = Vector2(-200, 0)
 module = NodePath("..")
 

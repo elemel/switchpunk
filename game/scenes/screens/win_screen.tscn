@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://b4ulq4lqvh81k"]
+
+[ext_resource type="Script" uid="uid://di6q7tdytqxsb" path="res://scripts/screens/win_screen.gd" id="1_l5ckm"]
+[ext_resource type="Theme" uid="uid://dyriatstgcby1" path="res://themes/title_theme.tres" id="2_5w3vv"]
+[ext_resource type="Theme" uid="uid://cjmuympwmgir7" path="res://themes/button_theme.tres" id="3_yphky"]
+[ext_resource type="StyleBox" uid="uid://bgivmmvxrq3fs" path="res://styles/buttons/button_normal_style.tres" id="4_un2dk"]
+[ext_resource type="StyleBox" uid="uid://yx6egmjdr2ug" path="res://styles/buttons/button_pressed_style.tres" id="5_5ujaj"]
+[ext_resource type="StyleBox" uid="uid://c8bnm3vu4xrbs" path="res://styles/buttons/button_hover_style.tres" id="6_prdii"]
+[ext_resource type="StyleBox" uid="uid://bjtvfauwsxb70" path="res://styles/buttons/button_focus_style.tres" id="7_lsdtd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ya4ey"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="WinScreen" type="CanvasLayer" unique_id=645514322 node_paths=PackedStringArray("continue_button")]
+script = ExtResource("1_l5ckm")
+continue_button = NodePath("VBoxContainer/ContinueButton")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1782462411]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=820346153]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 308.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=1492871644]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxFlat_ya4ey")
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=308719663]
+layout_mode = 2
+theme = ExtResource("2_5w3vv")
+theme_override_font_sizes/font_size = 200
+text = "You Win!"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=2040246134]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxFlat_ya4ey")
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer" unique_id=771936042]
+layout_mode = 2
+theme = ExtResource("3_yphky")
+theme_override_constants/h_separation = 0
+theme_override_styles/normal = ExtResource("4_un2dk")
+theme_override_styles/pressed = ExtResource("5_5ujaj")
+theme_override_styles/hover = ExtResource("6_prdii")
+theme_override_styles/hover_pressed = ExtResource("5_5ujaj")
+theme_override_styles/disabled = ExtResource("4_un2dk")
+theme_override_styles/focus = ExtResource("7_lsdtd")
+text = "Continue"
+
+[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

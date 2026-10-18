@@ -1,6 +1,7 @@
 extends CanvasLayer
 class_name PauseScreen
 
+@export var main: Main
 @export var title_screen: TitleScreen
 
 @export var resume_button: Button
@@ -33,10 +34,18 @@ func resume() -> void:
 	visible = false
 
 
-func _on_quit_button_pressed() -> void:
+func _on_quit_game_button_pressed() -> void:
+	main.quit_level()
+
 	get_tree().paused = false
 	visible = false
 
 	title_screen.visible = true
 	title_screen.start_button.grab_focus()
+	get_viewport().set_input_as_handled()
+
+
+func _on_restart_level_button_pressed() -> void:
+	main.start_level()
+	resume()
 	get_viewport().set_input_as_handled()
