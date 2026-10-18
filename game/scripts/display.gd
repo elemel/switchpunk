@@ -6,11 +6,35 @@ class_name Display
 	set(new_value):
 		if new_value != value:
 			value = new_value
-			update_label()
+
+			if is_node_ready():
+				update_label()
 
 @export var label: Label
 
+@onready var main := find_main()
+
+func _ready() -> void:
+	update_label()
+	main.format_changed.connect(_on_main_format_changed)
+
 
 func update_label() -> void:
-	if label != null:
-		label.text = "%X" % value
+	if main != null and label != null:
+		if main.use_hex_format:
+			label.text = "%X" % value
+		else:
+			label.text = str(value)
+
+
+func find_main() -> Main:
+	var tree := get_tree()
+
+	if tree == null:
+		return null
+
+	return tree.get_first_node_in_group("mains")
+
+
+func _on_main_format_changed() -> void:
+	update_label()

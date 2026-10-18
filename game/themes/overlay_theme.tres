@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://dg5c5uk18l0pn"]
+
+[ext_resource type="FontFile" uid="uid://bmnt5m2prtj73" path="res://fonts/neo_victorian.ttf" id="1_oun8x"]
+
+[resource]
+default_font = ExtResource("1_oun8x")
+default_font_size = 75

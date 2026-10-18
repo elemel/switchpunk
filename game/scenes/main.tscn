@@ -5,21 +5,26 @@
 [ext_resource type="PackedScene" uid="uid://cw2cirah7xdc0" path="res://scenes/levels/level_1.tscn" id="2_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://byaeh6ahs4sw7" path="res://scenes/output_port.tscn" id="3_tipki"]
 [ext_resource type="PackedScene" uid="uid://cnjbj6uejr56e" path="res://scenes/input_port.tscn" id="4_85g3d"]
+[ext_resource type="PackedScene" uid="uid://b3jr0dd4d3iu2" path="res://scenes/levels/level_3.tscn" id="4_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://r2y041fo0bby" path="res://scenes/wire.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://daahylqog1jun" path="res://scenes/levels/level_2.tscn" id="6_trceg"]
 [ext_resource type="PackedScene" uid="uid://dm631n4m2a87i" path="res://scenes/screens/pause_screen.tscn" id="8_choun"]
+[ext_resource type="Theme" uid="uid://dg5c5uk18l0pn" path="res://themes/overlay_theme.tres" id="9_a8y0u"]
+[ext_resource type="StyleBox" uid="uid://d3qseubm28vrq" path="res://styles/overlay_style.tres" id="9_trceg"]
 [ext_resource type="PackedScene" uid="uid://sisapj6tq7i3" path="res://scenes/screens/title_screen.tscn" id="9_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://c1l5jn0w8l52o" path="res://scenes/screens/level_complete_screen.tscn" id="10_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://b4ulq4lqvh81k" path="res://scenes/screens/win_screen.tscn" id="16_jbj1t"]
 
-[node name="Main" type="Node2D" unique_id=1967515149 node_paths=PackedStringArray("pause_screen", "level_complete_screen", "win_screen", "levels")]
+[node name="Main" type="Node2D" unique_id=1967515149 node_paths=PackedStringArray("pause_screen", "level_complete_screen", "win_screen", "levels", "format_button") groups=["mains"]]
 process_mode = 3
 script = ExtResource("1_tefeu")
 pause_screen = NodePath("Screens/PauseScreen")
 level_complete_screen = NodePath("Screens/LevelCompleteScreen")
 win_screen = NodePath("Screens/WinScreen")
-level_scenes = Array[PackedScene]([ExtResource("2_jkv2x"), ExtResource("6_trceg")])
+level_scenes = Array[PackedScene]([ExtResource("2_jkv2x"), ExtResource("6_trceg"), ExtResource("4_eb6dy")])
 levels = NodePath("Levels")
+start_level_index = 2
+format_button = NodePath("Screens/Overlay/Control/FormatButton")
 
 [node name="Player" type="Node2D" parent="." unique_id=457860793]
 script = ExtResource("1_tbgi4")
@@ -34,15 +39,89 @@ process_callback = 0
 
 [node name="Screens" type="Node2D" parent="." unique_id=348412247]
 
+[node name="Overlay" type="CanvasLayer" parent="Screens" unique_id=1832615987]
+
+[node name="Control" type="Control" parent="Screens/Overlay" unique_id=214802504]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseButton" type="Button" parent="Screens/Overlay/Control" unique_id=1074252981]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 1
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("9_a8y0u")
+theme_override_colors/font_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/font_focus_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/font_pressed_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/font_hover_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/font_disabled_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/font_outline_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/icon_normal_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/icon_focus_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/icon_pressed_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/icon_hover_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/icon_disabled_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_styles/normal = ExtResource("9_trceg")
+theme_override_styles/pressed = ExtResource("9_trceg")
+theme_override_styles/hover = ExtResource("9_trceg")
+theme_override_styles/hover_pressed = ExtResource("9_trceg")
+theme_override_styles/disabled = ExtResource("9_trceg")
+theme_override_styles/focus = ExtResource("9_trceg")
+text = "Pause"
+
+[node name="FormatButton" type="Button" parent="Screens/Overlay/Control" unique_id=686224655]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_bottom = 100.0
+grow_horizontal = 0
+theme = ExtResource("9_a8y0u")
+theme_override_colors/font_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/font_focus_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/font_pressed_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/font_hover_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/font_disabled_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/font_outline_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/icon_normal_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/icon_focus_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/icon_pressed_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/icon_hover_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_colors/icon_disabled_color = Color(0.2997, 0.63139504, 0.81, 1)
+theme_override_styles/normal = ExtResource("9_trceg")
+theme_override_styles/pressed = ExtResource("9_trceg")
+theme_override_styles/hover = ExtResource("9_trceg")
+theme_override_styles/hover_pressed = ExtResource("9_trceg")
+theme_override_styles/disabled = ExtResource("9_trceg")
+theme_override_styles/focus = ExtResource("9_trceg")
+text = "DEC"
+
 [node name="TitleScreen" parent="Screens" unique_id=1268018315 node_paths=PackedStringArray("main") instance=ExtResource("9_ya4ey")]
 main = NodePath("../..")
 
 [node name="PauseScreen" parent="Screens" unique_id=1946852061 node_paths=PackedStringArray("main", "title_screen") instance=ExtResource("8_choun")]
+visible = false
 main = NodePath("../..")
 title_screen = NodePath("../TitleScreen")
 
 [node name="LevelCompleteScreen" parent="Screens" unique_id=645514322 node_paths=PackedStringArray("main") instance=ExtResource("10_ya4ey")]
+visible = false
 main = NodePath("../..")
 
 [node name="WinScreen" parent="Screens" unique_id=1049289564 node_paths=PackedStringArray("title_screen") instance=ExtResource("16_jbj1t")]
+visible = false
 title_screen = NodePath("../TitleScreen")
+
+[connection signal="pressed" from="Screens/Overlay/Control/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Screens/Overlay/Control/FormatButton" to="." method="_on_format_button_pressed"]

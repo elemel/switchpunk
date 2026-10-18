@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://urk67cm88ydh"]
+
+[ext_resource type="Script" uid="uid://bcwtfylm3koof" path="res://scripts/modules/modulo.gd" id="1_qxn5m"]
+[ext_resource type="PackedScene" uid="uid://cnjbj6uejr56e" path="res://scenes/input_port.tscn" id="2_riuq7"]
+[ext_resource type="PackedScene" uid="uid://byaeh6ahs4sw7" path="res://scenes/output_port.tscn" id="3_inaan"]
+[ext_resource type="StyleBox" uid="uid://dwwmf10i0j7hk" path="res://styles/module_style.tres" id="4_dmbnp"]
+[ext_resource type="PackedScene" uid="uid://c6edd3h1wm63u" path="res://scenes/label.tscn" id="5_ahuxg"]
+[ext_resource type="PackedScene" uid="uid://bjgijke0qlm5j" path="res://scenes/display.tscn" id="6_kw0au"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23ros"]
+size = Vector2(300, 200)
+
+[node name="Modulo" type="Node2D" unique_id=319058681 node_paths=PackedStringArray("port_a", "port_b", "result_port", "display")]
+script = ExtResource("1_qxn5m")
+port_a = NodePath("PortA")
+port_b = NodePath("PortB")
+result_port = NodePath("ResultPort")
+display = NodePath("Display")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1598399367]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=139686460]
+shape = SubResource("RectangleShape2D_23ros")
+
+[node name="PortA" parent="." unique_id=2063947181 node_paths=PackedStringArray("module") instance=ExtResource("2_riuq7")]
+position = Vector2(-150, -50)
+module = NodePath("..")
+
+[node name="PortB" parent="." unique_id=39297101 node_paths=PackedStringArray("module") instance=ExtResource("2_riuq7")]
+position = Vector2(-150, 50)
+module = NodePath("..")
+
+[node name="ResultPort" parent="." unique_id=447910078 node_paths=PackedStringArray("module") instance=ExtResource("3_inaan")]
+position = Vector2(150, 50)
+module = NodePath("..")
+
+[node name="Panel" type="Panel" parent="." unique_id=2141674358]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("4_dmbnp")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" parent="." unique_id=304817509 instance=ExtResource("5_ahuxg")]
+position = Vector2(0, -50)
+
+[node name="Label" parent="Label" index="0" unique_id=2114009902]
+text = "MOD"
+
+[node name="Display" parent="." unique_id=934708420 instance=ExtResource("6_kw0au")]
+position = Vector2(0, 50)
+
+[editable path="Label"]

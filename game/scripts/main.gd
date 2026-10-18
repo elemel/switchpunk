@@ -1,18 +1,24 @@
 extends Node2D
 class_name Main
 
+signal format_changed
+
 @export var pause_screen: PauseScreen
 @export var level_complete_screen: LevelCompleteScreen
 @export var win_screen: WinScreen
 @export var level_scenes: Array[PackedScene]
 @export var levels: Node2D
+@export var start_level_index := 0
+@export var use_hex_format := false
+@export var format_button: Button
 
 var is_web := OS.has_feature("web")
-var level_index := 0
+var level_index := start_level_index
 
 
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color.BLACK)
+	update_format_button()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -53,7 +59,7 @@ func is_level_complete() -> bool:
 
 
 func start_game() -> void:
-	level_index = 0
+	level_index = start_level_index
 	start_level()
 
 
@@ -85,3 +91,17 @@ func find_level() -> Level:
 
 func exit() -> void:
 	get_tree().quit()
+
+
+func _on_pause_button_pressed() -> void:
+	pause()
+
+
+func _on_format_button_pressed() -> void:
+	use_hex_format = not use_hex_format
+	update_format_button()
+	format_changed.emit()
+
+
+func update_format_button() -> void:
+	format_button.text = "HEX" if use_hex_format else "DEC"

@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://b3jr0dd4d3iu2"]
+
+[ext_resource type="Script" uid="uid://dmsna1rt3wpv4" path="res://scripts/level.gd" id="1_ftfob"]
+[ext_resource type="StyleBox" uid="uid://da3cp4cmwmv88" path="res://styles/board_style.tres" id="2_fkk1g"]
+[ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/modules/input_terminal.tscn" id="3_ugcn1"]
+[ext_resource type="PackedScene" uid="uid://pem4rfwsjukl" path="res://scenes/modules/adder.tscn" id="4_pimnq"]
+[ext_resource type="PackedScene" uid="uid://41qoy364auiq" path="res://scenes/modules/subtractor.tscn" id="5_2bnyt"]
+[ext_resource type="PackedScene" uid="uid://dt5ncm1mmohd2" path="res://scenes/modules/multiplier.tscn" id="6_fkk1g"]
+[ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/modules/output_terminal.tscn" id="6_n6eey"]
+[ext_resource type="PackedScene" uid="uid://fyw038t8ida5" path="res://scenes/modules/divider.tscn" id="8_ugcn1"]
+[ext_resource type="PackedScene" uid="uid://urk67cm88ydh" path="res://scenes/modules/modulo.tscn" id="9_pimnq"]
+
+[node name="Level3" type="Node2D" unique_id=1959346673 node_paths=PackedStringArray("wires") groups=["levels"]]
+script = ExtResource("1_ftfob")
+wires = NodePath("Wires")
+
+[node name="Board" type="Node2D" parent="." unique_id=235852790]
+
+[node name="Panel" type="Panel" parent="Board" unique_id=1488992448]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1225.0
+offset_top = -700.0
+offset_right = 1225.0
+offset_bottom = 700.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_fkk1g")
+
+[node name="Wires" type="Node2D" parent="." unique_id=1347272993]
+
+[node name="Modules" type="Node2D" parent="." unique_id=87758095]
+
+[node name="InputTerminal" parent="Modules" unique_id=319058681 instance=ExtResource("3_ugcn1")]
+position = Vector2(-900, -500)
+value = 1953
+
+[node name="InputTerminal2" parent="Modules" unique_id=741920644 instance=ExtResource("3_ugcn1")]
+position = Vector2(-900, -400)
+value = 178
+
+[node name="InputTerminal3" parent="Modules" unique_id=1925253035 instance=ExtResource("3_ugcn1")]
+position = Vector2(-900, -300)
+value = 58584
+
+[node name="InputTerminal4" parent="Modules" unique_id=2016905390 instance=ExtResource("3_ugcn1")]
+position = Vector2(-900, -200)
+value = 1779
+
+[node name="InputTerminal5" parent="Modules" unique_id=2113252130 instance=ExtResource("3_ugcn1")]
+position = Vector2(-900, -100)
+value = 1953
+
+[node name="InputTerminal6" parent="Modules" unique_id=1590618713 instance=ExtResource("3_ugcn1")]
+position = Vector2(-900, 0)
+value = 178
+
+[node name="InputTerminal7" parent="Modules" unique_id=40559335 instance=ExtResource("3_ugcn1")]
+position = Vector2(-900, 100)
+value = 58584
+
+[node name="InputTerminal8" parent="Modules" unique_id=311678995 instance=ExtResource("3_ugcn1")]
+position = Vector2(-900, 200)
+value = 1779
+
+[node name="OutputTerminal" parent="Modules" unique_id=1820310394 instance=ExtResource("6_n6eey")]
+position = Vector2(850, -300)
+value = 1601
+
+[node name="OutputTerminal2" parent="Modules" unique_id=1102965120 instance=ExtResource("6_n6eey")]
+position = Vector2(850, -200)
+value = 1601
+
+[node name="OutputTerminal3" parent="Modules" unique_id=945546271 instance=ExtResource("6_n6eey")]
+position = Vector2(850, -100)
+value = 1601
+
+[node name="OutputTerminal4" parent="Modules" unique_id=1822402902 instance=ExtResource("6_n6eey")]
+position = Vector2(850, 0)
+value = 1601
+
+[node name="Adder" parent="Modules" unique_id=567054835 instance=ExtResource("4_pimnq")]
+position = Vector2(-900, 500)
+
+[node name="Subtractor" parent="Modules" unique_id=2118604933 instance=ExtResource("5_2bnyt")]
+position = Vector2(-450, 500)
+
+[node name="Multiplier" parent="Modules" unique_id=1944656182 instance=ExtResource("6_fkk1g")]
+position = Vector2(0, 500)
+
+[node name="Divider" parent="Modules" unique_id=744807753 instance=ExtResource("8_ugcn1")]
+position = Vector2(450, 500)
+
+[node name="Modulo" parent="Modules" unique_id=1261500666 instance=ExtResource("9_pimnq")]
+position = Vector2(900, 500)

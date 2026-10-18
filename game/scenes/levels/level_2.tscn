@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://41qoy364auiq" path="res://scenes/modules/subtractor.tscn" id="6_ibugp"]
 [ext_resource type="PackedScene" uid="uid://pem4rfwsjukl" path="res://scenes/modules/adder.tscn" id="6_qpwj6"]
 
-[node name="Level1" type="Node2D" unique_id=1959346673 node_paths=PackedStringArray("wires") groups=["levels"]]
+[node name="Level2" type="Node2D" unique_id=1959346673 node_paths=PackedStringArray("wires") groups=["levels"]]
 script = ExtResource("1_l37oo")
 wires = NodePath("Wires")
 
@@ -19,9 +19,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1250.0
+offset_left = -1225.0
 offset_top = -700.0
-offset_right = 1200.0
+offset_right = 1225.0
 offset_bottom = 700.0
 grow_horizontal = 2
 grow_vertical = 2
