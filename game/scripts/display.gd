@@ -16,7 +16,9 @@ class_name Display
 
 func _ready() -> void:
 	update_label()
-	main.format_changed.connect(_on_main_format_changed)
+
+	if main != null:
+		main.format_changed.connect(_on_main_format_changed)
 
 
 func update_label() -> void:
