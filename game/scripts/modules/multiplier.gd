@@ -1,5 +1,5 @@
 @tool
-extends Module
+extends Chip
 class_name Multiplier
 
 @export var port_a: InputPort

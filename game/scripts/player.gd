@@ -27,7 +27,7 @@ func grab() -> void:
 	if area != null:
 		var area_parent := area.get_parent() as Node2D
 
-		if area_parent is Module:
+		if area_parent is Chip:
 			dragged_node = area_parent
 		elif area_parent is OutputPort:
 			grab_output_port(area_parent)
@@ -39,7 +39,7 @@ func grab() -> void:
 
 
 func grab_output_port(port: OutputPort) -> void:
-	if port.module == null:
+	if port.chip == null:
 		dragged_node = port
 		return
 
@@ -47,7 +47,7 @@ func grab_output_port(port: OutputPort) -> void:
 		var port_position := port.global_position
 		var wire := port.wire
 		wire.start_port = output_port_scene.instantiate() as OutputPort
-		wire.start_port.module = null
+		wire.start_port.chip = null
 		wire.start_port.global_position = port_position
 		wire.add_child(wire.start_port)
 		dragged_node = wire.start_port
@@ -70,7 +70,7 @@ func grab_output_port(port: OutputPort) -> void:
 
 
 func grab_input_port(port: InputPort) -> void:
-	if port.module == null:
+	if port.chip == null:
 		dragged_node = port
 		return
 
@@ -124,7 +124,7 @@ func drop_output_port() -> void:
 				wire.remove_child(dragged_node)
 				dragged_node.queue_free()
 
-	if wire.start_port.module == null:
+	if wire.start_port.chip == null:
 		wire.end_port = null
 		wire.get_parent().remove_child(wire)
 		wire.queue_free()
@@ -146,7 +146,7 @@ func drop_input_port() -> void:
 				wire.remove_child(dragged_node)
 				dragged_node.queue_free()
 
-	if wire.end_port.module == null:
+	if wire.end_port.chip == null:
 		wire.start_port = null
 		wire.get_parent().remove_child(wire)
 		wire.queue_free()
@@ -180,7 +180,7 @@ func get_area_score(area: Area2D) -> int:
 	if area_parent is InputPort or area_parent is OutputPort:
 		return 2
 
-	if area_parent is Module:
+	if area_parent is Chip:
 		return 1
 
 	return 0

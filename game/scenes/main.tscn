@@ -23,7 +23,6 @@ level_complete_screen = NodePath("Screens/LevelCompleteScreen")
 win_screen = NodePath("Screens/WinScreen")
 level_scenes = Array[PackedScene]([ExtResource("2_jkv2x"), ExtResource("6_trceg"), ExtResource("4_eb6dy")])
 levels = NodePath("Levels")
-start_level_index = 2
 format_button = NodePath("Screens/Overlay/Control/FormatButton")
 
 [node name="Player" type="Node2D" parent="." unique_id=457860793]

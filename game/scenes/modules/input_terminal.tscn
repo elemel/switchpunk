@@ -18,9 +18,9 @@ port = NodePath("Port")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=139686460]
 shape = SubResource("RectangleShape2D_23ros")
 
-[node name="Port" parent="." unique_id=2063947181 node_paths=PackedStringArray("module") instance=ExtResource("2_u5na0")]
+[node name="Port" parent="." unique_id=2063947181 node_paths=PackedStringArray("chip") instance=ExtResource("2_u5na0")]
 position = Vector2(150, 0)
-module = NodePath("..")
+chip = NodePath("..")
 
 [node name="Panel" type="Panel" parent="." unique_id=2141674358]
 anchors_preset = 8

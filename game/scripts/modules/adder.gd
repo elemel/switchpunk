@@ -1,5 +1,5 @@
 @tool
-extends Module
+extends Chip
 class_name Adder
 
 @export var port_a: InputPort

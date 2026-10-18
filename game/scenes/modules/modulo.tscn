@@ -22,17 +22,17 @@ display = NodePath("Display")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=139686460]
 shape = SubResource("RectangleShape2D_23ros")
 
-[node name="PortA" parent="." unique_id=2063947181 node_paths=PackedStringArray("module") instance=ExtResource("2_riuq7")]
+[node name="PortA" parent="." unique_id=2063947181 node_paths=PackedStringArray("chip") instance=ExtResource("2_riuq7")]
 position = Vector2(-150, -50)
-module = NodePath("..")
+chip = NodePath("..")
 
-[node name="PortB" parent="." unique_id=39297101 node_paths=PackedStringArray("module") instance=ExtResource("2_riuq7")]
+[node name="PortB" parent="." unique_id=39297101 node_paths=PackedStringArray("chip") instance=ExtResource("2_riuq7")]
 position = Vector2(-150, 50)
-module = NodePath("..")
+chip = NodePath("..")
 
-[node name="ResultPort" parent="." unique_id=447910078 node_paths=PackedStringArray("module") instance=ExtResource("3_inaan")]
+[node name="ResultPort" parent="." unique_id=447910078 node_paths=PackedStringArray("chip") instance=ExtResource("3_inaan")]
 position = Vector2(150, 50)
-module = NodePath("..")
+chip = NodePath("..")
 
 [node name="Panel" type="Panel" parent="." unique_id=2141674358]
 anchors_preset = 8
