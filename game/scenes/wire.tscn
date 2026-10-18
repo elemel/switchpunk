@@ -8,4 +8,4 @@ line = NodePath("Line2D")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=2134926720]
 width = 25.0
-default_color = Color(0.71, 0.48137996, 0.113600016, 1)
+default_color = Color(0.113600016, 0.58077997, 0.71, 1)

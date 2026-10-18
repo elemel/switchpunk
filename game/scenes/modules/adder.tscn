@@ -53,7 +53,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(0, -50)
 
 [node name="Label" parent="Label" index="0" unique_id=2114009902]
-text = "Add"
+text = "ADD"
 
 [node name="Display" parent="." unique_id=934708420 instance=ExtResource("4_m8hj5")]
 position = Vector2(0, 50)
