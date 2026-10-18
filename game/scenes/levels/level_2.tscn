@@ -33,19 +33,19 @@ theme_override_styles/panel = ExtResource("2_qpwj6")
 
 [node name="InputTerminal" parent="Modules" unique_id=319058681 instance=ExtResource("4_8qukl")]
 position = Vector2(-700, -300)
-value = 37
+value = 1953
 
 [node name="InputTerminal2" parent="Modules" unique_id=741920644 instance=ExtResource("4_8qukl")]
 position = Vector2(-700, -100)
-value = 29
+value = 178
 
 [node name="InputTerminal3" parent="Modules" unique_id=1925253035 instance=ExtResource("4_8qukl")]
 position = Vector2(-700, 100)
-value = 24
+value = 58584
 
 [node name="InputTerminal4" parent="Modules" unique_id=2016905390 instance=ExtResource("4_8qukl")]
 position = Vector2(-700, 300)
-value = 84
+value = 1779
 
 [node name="Adder" parent="Modules" unique_id=567054835 instance=ExtResource("6_qpwj6")]
 position = Vector2(0, -200)
@@ -55,8 +55,8 @@ position = Vector2(0, 200)
 
 [node name="OutputTerminal" parent="Modules" unique_id=1820310394 instance=ExtResource("5_3p04p")]
 position = Vector2(700, -200)
-value = 55
+value = 1601
 
 [node name="OutputTerminal2" parent="Modules" unique_id=1220780692 instance=ExtResource("5_3p04p")]
 position = Vector2(700, 200)
-value = 61
+value = 60537

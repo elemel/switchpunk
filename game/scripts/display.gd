@@ -13,4 +13,4 @@ class_name Display
 
 func update_label() -> void:
 	if label != null:
-		label.text = str(value)
+		label.text = "%X" % value
