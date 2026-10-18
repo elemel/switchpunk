@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dmsna1rt3wpv4" path="res://scripts/level.gd" id="1_ftfob"]
 [ext_resource type="StyleBox" uid="uid://da3cp4cmwmv88" path="res://styles/board_style.tres" id="2_fkk1g"]
-[ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/modules/input_terminal.tscn" id="3_ugcn1"]
-[ext_resource type="PackedScene" uid="uid://pem4rfwsjukl" path="res://scenes/modules/adder.tscn" id="4_pimnq"]
-[ext_resource type="PackedScene" uid="uid://41qoy364auiq" path="res://scenes/modules/subtractor.tscn" id="5_2bnyt"]
-[ext_resource type="PackedScene" uid="uid://dt5ncm1mmohd2" path="res://scenes/modules/multiplier.tscn" id="6_fkk1g"]
-[ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/modules/output_terminal.tscn" id="6_n6eey"]
-[ext_resource type="PackedScene" uid="uid://fyw038t8ida5" path="res://scenes/modules/divider.tscn" id="8_ugcn1"]
-[ext_resource type="PackedScene" uid="uid://urk67cm88ydh" path="res://scenes/modules/modulo.tscn" id="9_pimnq"]
+[ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/chips/input_terminal.tscn" id="3_ugcn1"]
+[ext_resource type="PackedScene" uid="uid://pem4rfwsjukl" path="res://scenes/chips/adder.tscn" id="4_pimnq"]
+[ext_resource type="PackedScene" uid="uid://41qoy364auiq" path="res://scenes/chips/subtractor.tscn" id="5_2bnyt"]
+[ext_resource type="PackedScene" uid="uid://dt5ncm1mmohd2" path="res://scenes/chips/multiplier.tscn" id="6_fkk1g"]
+[ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/chips/output_terminal.tscn" id="6_n6eey"]
+[ext_resource type="PackedScene" uid="uid://fyw038t8ida5" path="res://scenes/chips/divider.tscn" id="8_ugcn1"]
+[ext_resource type="PackedScene" uid="uid://urk67cm88ydh" path="res://scenes/chips/modulo.tscn" id="9_pimnq"]
 
 [node name="Level3" type="Node2D" unique_id=1959346673 node_paths=PackedStringArray("wires") groups=["levels"]]
 script = ExtResource("1_ftfob")

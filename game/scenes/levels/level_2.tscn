@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dmsna1rt3wpv4" path="res://scripts/level.gd" id="1_l37oo"]
 [ext_resource type="StyleBox" uid="uid://da3cp4cmwmv88" path="res://styles/board_style.tres" id="2_qpwj6"]
-[ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/modules/input_terminal.tscn" id="4_8qukl"]
-[ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/modules/output_terminal.tscn" id="5_3p04p"]
-[ext_resource type="PackedScene" uid="uid://41qoy364auiq" path="res://scenes/modules/subtractor.tscn" id="6_ibugp"]
-[ext_resource type="PackedScene" uid="uid://pem4rfwsjukl" path="res://scenes/modules/adder.tscn" id="6_qpwj6"]
+[ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/chips/input_terminal.tscn" id="4_8qukl"]
+[ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/chips/output_terminal.tscn" id="5_3p04p"]
+[ext_resource type="PackedScene" uid="uid://41qoy364auiq" path="res://scenes/chips/subtractor.tscn" id="6_ibugp"]
+[ext_resource type="PackedScene" uid="uid://pem4rfwsjukl" path="res://scenes/chips/adder.tscn" id="6_qpwj6"]
 
 [node name="Level2" type="Node2D" unique_id=1959346673 node_paths=PackedStringArray("wires") groups=["levels"]]
 script = ExtResource("1_l37oo")

@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://dmsna1rt3wpv4" path="res://scripts/level.gd" id="1_6761a"]
 [ext_resource type="StyleBox" uid="uid://da3cp4cmwmv88" path="res://styles/board_style.tres" id="2_sk5k4"]
 [ext_resource type="PackedScene" uid="uid://r2y041fo0bby" path="res://scenes/wire.tscn" id="3_oc4kc"]
-[ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/modules/input_terminal.tscn" id="4_s8va5"]
-[ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/modules/output_terminal.tscn" id="5_dga24"]
+[ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/chips/input_terminal.tscn" id="4_s8va5"]
+[ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/chips/output_terminal.tscn" id="5_dga24"]
 
 [node name="Level1" type="Node2D" unique_id=1959346673 node_paths=PackedStringArray("wires") groups=["levels"]]
 script = ExtResource("1_6761a")
