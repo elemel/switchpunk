@@ -25,7 +25,7 @@ func update_label() -> void:
 	if main != null and label != null:
 		if main.use_hex_format:
 			var unsigned_value := value & 0xFFFF
-			label.text = "%X" % unsigned_value
+			label.text = "%XH" % unsigned_value
 		else:
 			label.text = str(value)
 
