@@ -42,4 +42,12 @@ func get_b() -> int:
 
 
 func get_result() -> int:
-	return get_a() * get_b()
+	var a := get_a()
+	var b := get_b()
+	var result := a * b
+	result = to_signed_16(result)
+	return result
+
+
+func to_signed_16(value: int) -> int:
+	return wrapi(value, -32768, 32768)

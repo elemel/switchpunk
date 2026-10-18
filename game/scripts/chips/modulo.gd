@@ -48,4 +48,10 @@ func get_result() -> int:
 	if b == 0:
 		return 0
 
-	return posmod(a, b)
+	var result := posmod(a, b)
+	result = to_signed_16(result)
+	return result
+
+
+func to_signed_16(value: int) -> int:
+	return wrapi(value, -32768, 32768)
