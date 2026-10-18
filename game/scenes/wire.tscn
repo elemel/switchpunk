@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cawfsagwhqsgp" path="res://scripts/wire.gd" id="1_oh5q0"]
 
-[node name="Wire" type="Node2D" unique_id=859978273 node_paths=PackedStringArray("line")]
+[node name="Wire" type="Node2D" unique_id=859978273 node_paths=PackedStringArray("lines")]
 script = ExtResource("1_oh5q0")
-line = NodePath("Line2D")
+lines = [NodePath("Line2D"), NodePath("Line2D2")]
 
 [node name="Line2D" type="Line2D" parent="." unique_id=2134926720]
+width = 37.5
+default_color = Color(0.09120002, 0.35454008, 0.57, 1)
+
+[node name="Line2D2" type="Line2D" parent="." unique_id=1914030595]
 width = 25.0
 default_color = Color(0.113600016, 0.58077997, 0.71, 1)

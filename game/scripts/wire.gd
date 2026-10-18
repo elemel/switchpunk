@@ -26,7 +26,7 @@ class_name Wire
 				end_port.wire = self
 				end_port.value = get_value()
 
-@export var line: Line2D
+@export var lines: Array[Line2D]
 @export_range(0.0, 1.0, 0.01) var curviness := 0.5
 
 var curve := Curve2D.new()
@@ -58,11 +58,10 @@ func get_value() -> int:
 
 
 func update_line() -> void:
-	if line == null:
-		return
+	if start_port == null || end_port == null:
+		for line in lines:
+			line.clear_points()
 
-	if start_port == null || end_port == null || line == null:
-		line.clear_points()
 		return
 
 	var distance := start_port.global_position.distance_to(end_port.global_position)
@@ -82,4 +81,7 @@ func update_line() -> void:
 		Vector2.ZERO,
 	)
 
-	line.points = curve.get_baked_points()
+	var points := curve.get_baked_points()
+
+	for line in lines:
+		line.points = points
