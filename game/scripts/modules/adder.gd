@@ -4,7 +4,7 @@ class_name Adder
 
 @export var port_a: InputPort
 @export var port_b: InputPort
-@export var sum_port: OutputPort
+@export var result_port: OutputPort
 
 @export var display: Display
 
@@ -18,13 +18,13 @@ func _physics_process(_delta: float) -> void:
 
 
 func update() -> void:
-	var sum := get_sum()
+	var result := get_result()
 
-	if sum_port != null:
-		sum_port.value = sum
+	if result_port != null:
+		result_port.value = result
 
 	if display != null:
-		display.value = sum
+		display.value = result
 
 
 func get_a() -> int:
@@ -41,5 +41,5 @@ func get_b() -> int:
 	return port_b.value
 
 
-func get_sum() -> int:
+func get_result() -> int:
 	return get_a() + get_b()

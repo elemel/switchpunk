@@ -5,15 +5,16 @@
 [ext_resource type="PackedScene" uid="uid://byaeh6ahs4sw7" path="res://scenes/output_port.tscn" id="2_wg1uj"]
 [ext_resource type="StyleBox" uid="uid://dwwmf10i0j7hk" path="res://styles/module_style.tres" id="3_0oxwr"]
 [ext_resource type="PackedScene" uid="uid://bjgijke0qlm5j" path="res://scenes/display.tscn" id="4_m8hj5"]
+[ext_resource type="PackedScene" uid="uid://c6edd3h1wm63u" path="res://scenes/label.tscn" id="5_0oxwr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23ros"]
 size = Vector2(300, 200)
 
-[node name="Adder" type="Node2D" unique_id=319058681 node_paths=PackedStringArray("port_a", "port_b", "sum_port", "display")]
+[node name="Adder" type="Node2D" unique_id=319058681 node_paths=PackedStringArray("port_a", "port_b", "result_port", "display")]
 script = ExtResource("1_wg1uj")
 port_a = NodePath("PortA")
 port_b = NodePath("PortB")
-sum_port = NodePath("SumPort")
+result_port = NodePath("ResultPort")
 display = NodePath("Display")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1598399367]
@@ -29,8 +30,8 @@ module = NodePath("..")
 position = Vector2(-150, 50)
 module = NodePath("..")
 
-[node name="SumPort" parent="." unique_id=447910078 node_paths=PackedStringArray("module") instance=ExtResource("2_wg1uj")]
-position = Vector2(150, -50)
+[node name="ResultPort" parent="." unique_id=447910078 node_paths=PackedStringArray("module") instance=ExtResource("2_wg1uj")]
+position = Vector2(150, 50)
 module = NodePath("..")
 
 [node name="Panel" type="Panel" parent="." unique_id=2141674358]
@@ -46,28 +47,15 @@ offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("3_0oxwr")
+metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Node2D" parent="." unique_id=1254789123]
+[node name="Label" parent="." unique_id=304817509 instance=ExtResource("5_0oxwr")]
 position = Vector2(0, -50)
 
-[node name="Label" type="Label" parent="Label" unique_id=17558336]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -14.5
-offset_top = -34.5
-offset_right = 14.5
-offset_bottom = 34.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.50027084, 0.41898793, 0, 1)
-theme_override_font_sizes/font_size = 50
+[node name="Label" parent="Label" index="0" unique_id=2114009902]
 text = "Add"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Display" parent="." unique_id=934708420 instance=ExtResource("4_m8hj5")]
 position = Vector2(0, 50)
+
+[editable path="Label"]

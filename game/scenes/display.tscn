@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bdgnc2cmo561l" path="res://scripts/display.gd" id="1_v8cgk"]
 [ext_resource type="StyleBox" uid="uid://btx2h7rx3qgpn" path="res://styles/display_style.tres" id="2_wijb7"]
+[ext_resource type="Theme" uid="uid://djn6cfwdaxou2" path="res://themes/display_theme.tres" id="3_wy1qo"]
 
 [node name="Display" type="Node2D" unique_id=934708420 node_paths=PackedStringArray("label")]
 script = ExtResource("1_v8cgk")
@@ -28,11 +29,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -11.5
+offset_top = -33.0
 offset_right = 20.0
-offset_bottom = 11.5
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_wy1qo")
 theme_override_colors/font_color = Color(1, 0.8588333, 0.23000002, 1)
 theme_override_font_sizes/font_size = 50
 text = "0"

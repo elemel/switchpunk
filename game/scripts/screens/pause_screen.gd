@@ -9,6 +9,10 @@ class_name PauseScreen
 var is_web := OS.has_feature("web")
 
 
+func _ready() -> void:
+	visible = false
+
+
 func _on_resume_button_pressed() -> void:
 	resume()
 	get_viewport().set_input_as_handled()

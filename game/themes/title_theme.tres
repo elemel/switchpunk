@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://dyriatstgcby1"]
+
+[ext_resource type="FontFile" uid="uid://bmnt5m2prtj73" path="res://fonts/neo_victorian.ttf" id="1_jvjxa"]
+
+[resource]
+default_font = ExtResource("1_jvjxa")
