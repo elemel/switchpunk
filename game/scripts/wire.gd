@@ -85,3 +85,10 @@ func update_line() -> void:
 
 	for line in lines:
 		line.points = points
+
+
+func destroy() -> void:
+	start_port = null
+	end_port = null
+	get_parent().remove_child(self)
+	queue_free()

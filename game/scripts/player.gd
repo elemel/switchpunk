@@ -117,12 +117,14 @@ func drop_output_port() -> void:
 		var area_parent := area.get_parent() as Node2D
 
 		if area_parent is OutputPort:
-			if area_parent.wire == null:
-				area_parent.wire = wire
-				wire.start_port = area_parent
+			if area_parent.wire != null:
+				area_parent.wire.destroy()				
 
-				wire.remove_child(dragged_node)
-				dragged_node.queue_free()
+			area_parent.wire = wire
+			wire.start_port = area_parent
+
+			wire.remove_child(dragged_node)
+			dragged_node.queue_free()
 
 	if wire.start_port.chip == null:
 		wire.end_port = null
@@ -139,12 +141,14 @@ func drop_input_port() -> void:
 		var area_parent := area.get_parent() as Node2D
 
 		if area_parent is InputPort:
-			if area_parent.wire == null:
-				area_parent.wire = wire
-				wire.end_port = area_parent
+			if area_parent.wire != null:
+				area_parent.wire.destroy()				
 
-				wire.remove_child(dragged_node)
-				dragged_node.queue_free()
+			area_parent.wire = wire
+			wire.end_port = area_parent
+
+			wire.remove_child(dragged_node)
+			dragged_node.queue_free()
 
 	if wire.end_port.chip == null:
 		wire.start_port = null
