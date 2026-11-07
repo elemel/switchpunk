@@ -11,9 +11,12 @@ signal format_changed
 @export var start_level_index := 0
 @export var use_hex_format := false
 @export var format_button: Button
+@export var fade_duration := 2.0
 
 var is_web := OS.has_feature("web")
 var level_index := start_level_index
+var fading := false
+var fade_progress := 0.0
 
 
 func _ready() -> void:
@@ -34,8 +37,23 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 
-func _physics_process(_delta: float) -> void:
-	if is_level_complete():
+func _physics_process(delta: float) -> void:
+	if is_level_complete() and not fading:
+		fading = true
+		fade_progress = 0.0
+
+	if fading:
+		fade_progress += delta / fade_duration
+
+	var level := find_level()
+
+	if level != null:
+		var fade_weight := smoothstep(0.0, 1.0, fade_progress) if fading else 0.0
+		level.modulate = Color.WHITE.lerp(Color.BLACK, fade_weight)
+
+	if fading and fade_progress >= 1.0:
+		fading = false
+
 		quit_level()
 		level_index += 1
 
@@ -65,13 +83,13 @@ func start_game() -> void:
 
 func start_level() -> void:
 	quit_level()
-
 	var level_scene := level_scenes[level_index]
 	var level = level_scene.instantiate() as Level
 	levels.add_child(level)
 
 
 func quit_level() -> void:
+	fading = false
 	var level := find_level()
 
 	if level != null:
