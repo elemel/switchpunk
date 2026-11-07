@@ -7,6 +7,8 @@ class_name Player
 
 var dragged_node: Node2D
 var drag_offset := Vector2.ZERO
+var old_input_port: InputPort
+var old_output_port: OutputPort
 
 
 func _physics_process(_delta: float) -> void:
@@ -44,6 +46,7 @@ func grab_output_port(port: OutputPort) -> void:
 		return
 
 	if port.wire != null:
+		old_output_port = port
 		var port_position := port.global_position
 		var wire := port.wire
 		wire.start_port = output_port_scene.instantiate() as OutputPort
@@ -75,6 +78,7 @@ func grab_input_port(port: InputPort) -> void:
 		return
 
 	if port.wire != null:
+		old_input_port = port
 		var port_position := port.global_position
 		var wire := port.wire
 		wire.end_port = input_port_scene.instantiate() as InputPort
@@ -106,6 +110,8 @@ func drop() -> void:
 		drop_input_port()
 
 	dragged_node = null
+	old_input_port = null
+	old_output_port = null
 
 
 func drop_output_port() -> void:
@@ -118,7 +124,11 @@ func drop_output_port() -> void:
 
 		if area_parent is OutputPort:
 			if area_parent.wire != null:
-				area_parent.wire.destroy()				
+				if old_output_port != null:
+					area_parent.wire.start_port = old_output_port
+					old_output_port = null
+				else:
+					area_parent.wire.destroy()
 
 			area_parent.wire = wire
 			wire.start_port = area_parent
@@ -142,7 +152,11 @@ func drop_input_port() -> void:
 
 		if area_parent is InputPort:
 			if area_parent.wire != null:
-				area_parent.wire.destroy()				
+				if old_input_port != null:
+					area_parent.wire.end_port = old_input_port
+					old_input_port = null
+				else:
+					area_parent.wire.destroy()				
 
 			area_parent.wire = wire
 			wire.end_port = area_parent
