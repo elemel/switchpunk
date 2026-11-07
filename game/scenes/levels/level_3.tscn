@@ -36,51 +36,51 @@ theme_override_styles/panel = ExtResource("2_fkk1g")
 
 [node name="InputTerminal" parent="Modules" unique_id=319058681 instance=ExtResource("3_ugcn1")]
 position = Vector2(-900, -500)
-value = -14953
+value = -38
 
 [node name="InputTerminal2" parent="Modules" unique_id=741920644 instance=ExtResource("3_ugcn1")]
 position = Vector2(-900, -400)
-value = 26740
+value = -43
 
 [node name="InputTerminal3" parent="Modules" unique_id=1925253035 instance=ExtResource("3_ugcn1")]
 position = Vector2(-900, -300)
-value = -818
+value = 59
 
 [node name="InputTerminal4" parent="Modules" unique_id=2016905390 instance=ExtResource("3_ugcn1")]
 position = Vector2(-900, -200)
-value = 31201
+value = -119
 
 [node name="InputTerminal5" parent="Modules" unique_id=2113252130 instance=ExtResource("3_ugcn1")]
 position = Vector2(-900, -100)
-value = 145
+value = -92
 
 [node name="InputTerminal6" parent="Modules" unique_id=1590618713 instance=ExtResource("3_ugcn1")]
 position = Vector2(-900, 0)
-value = -31997
+value = -112
 
 [node name="InputTerminal7" parent="Modules" unique_id=40559335 instance=ExtResource("3_ugcn1")]
 position = Vector2(-900, 100)
-value = -2451
+value = 64
 
 [node name="InputTerminal8" parent="Modules" unique_id=311678995 instance=ExtResource("3_ugcn1")]
 position = Vector2(-900, 200)
-value = 8748
+value = 81
 
 [node name="OutputTerminal" parent="Modules" unique_id=1820310394 instance=ExtResource("6_n6eey")]
 position = Vector2(850, -300)
-value = 184
+value = -3
 
 [node name="OutputTerminal2" parent="Modules" unique_id=1102965120 instance=ExtResource("6_n6eey")]
 position = Vector2(850, -200)
-value = -2451
+value = -112
 
 [node name="OutputTerminal3" parent="Modules" unique_id=945546271 instance=ExtResource("6_n6eey")]
 position = Vector2(850, -100)
-value = -11092
+value = 103
 
 [node name="OutputTerminal4" parent="Modules" unique_id=1822402902 instance=ExtResource("6_n6eey")]
 position = Vector2(850, 0)
-value = 14858
+value = -74
 
 [node name="Adder" parent="Modules" unique_id=567054835 instance=ExtResource("4_pimnq")]
 position = Vector2(-900, 500)

@@ -42,20 +42,4 @@ func get_b() -> int:
 
 
 func get_result() -> int:
-	var a := get_a()
-	var b := get_b()
-
-	if b == 0:
-		return 0
-
-	var result := floor_div(a, b)
-	result = to_signed_16(result)
-	return result
-
-
-func floor_div(a: int, b: int) -> int:
-	return int(floor(float(a) / float(b)))
-
-
-func to_signed_16(value: int) -> int:
-	return wrapi(value, -32768, 32768)
+	return Math.div_8(get_a(), get_b())

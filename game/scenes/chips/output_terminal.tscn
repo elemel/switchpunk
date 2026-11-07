@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://v6hc01hhq0fy" path="res://scenes/lamp.tscn" id="5_r1o3e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23ros"]
-size = Vector2(400, 100)
+size = Vector2(300, 100)
 
 [node name="OutputTerminal" type="Node2D" unique_id=319058681 node_paths=PackedStringArray("port", "lamp", "display") groups=["output_terminals"]]
 script = ExtResource("1_q5b3w")
@@ -21,7 +21,7 @@ display = NodePath("Display")
 shape = SubResource("RectangleShape2D_23ros")
 
 [node name="Port" parent="." unique_id=2063947181 node_paths=PackedStringArray("chip") instance=ExtResource("2_ngcxr")]
-position = Vector2(-200, 0)
+position = Vector2(-150, 0)
 chip = NodePath("..")
 
 [node name="Panel" type="Panel" parent="." unique_id=2141674358]
@@ -30,9 +30,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
+offset_left = -150.0
 offset_top = -50.0
-offset_right = 200.0
+offset_right = 150.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -42,4 +42,4 @@ theme_override_styles/panel = ExtResource("3_sd6ol")
 position = Vector2(50, 0)
 
 [node name="Lamp" parent="." unique_id=542219054 instance=ExtResource("5_r1o3e")]
-position = Vector2(-150, 0)
+position = Vector2(-100, 0)
