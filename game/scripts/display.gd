@@ -2,16 +2,15 @@
 extends Node2D
 class_name Display
 
-@export var value := 0
 @export var label: Label
 @export var tween_duration := 0.2
 
+var value := 0
 var text_tween: Tween
 var text_value := 0
 
 
 func _ready() -> void:
-	text_value = value
 	update_label()
 	var main := find_main()
 

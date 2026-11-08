@@ -56,6 +56,7 @@ value = 65
 
 [node name="Display" parent="Modules/InputTerminal" index="3" unique_id=934708420]
 value = 65
+tween_duration = 0.2
 
 [node name="InputTerminal2" parent="Modules" unique_id=741920644 instance=ExtResource("4_s8va5")]
 position = Vector2(-500, 0)
@@ -63,6 +64,7 @@ value = 94
 
 [node name="Display" parent="Modules/InputTerminal2" index="3" unique_id=934708420]
 value = 94
+tween_duration = 0.2
 
 [node name="InputTerminal3" parent="Modules" unique_id=1925253035 instance=ExtResource("4_s8va5")]
 position = Vector2(-500, 300)
@@ -70,6 +72,7 @@ value = -67
 
 [node name="Display" parent="Modules/InputTerminal3" index="3" unique_id=934708420]
 value = -67
+tween_duration = 0.2
 
 [node name="OutputTerminal" parent="Modules" unique_id=1820310394 instance=ExtResource("5_dga24")]
 position = Vector2(500, -300)

@@ -5,16 +5,18 @@ class_name OutputTerminal
 @export var port: InputPort
 @export var lamp: Lamp
 @export var display: Display
+@export var lamp_change_duration := 0.1
 
-@export var value := 0:
-	set(new_value):
-		if new_value != value:
-			value = new_value
-			update()
+@export var value := 0
+
+
+var lamp_tween: Tween
+var lamp_complete := false
 
 
 func _ready() -> void:
-	update()
+	if lamp != null:
+		lamp.panel.modulate = Color.RED
 
 
 func _physics_process(_delta: float) -> void:
@@ -32,11 +34,22 @@ func update_display() -> void:
 
 
 func update_lamp() -> void:
-	if lamp != null:
-		if is_complete():
-			lamp.panel.modulate = Color.GREEN
-		else:
-			lamp.panel.modulate = Color.RED
+	if lamp_tween != null:
+		if not lamp_tween.is_valid():
+			lamp_tween.kill()
+			lamp_tween = null
+
+	if lamp_tween == null and lamp != null:
+		var complete := is_complete()
+
+		if complete != lamp_complete:
+			lamp_complete = complete
+			lamp_tween = create_tween()
+
+			if lamp_complete:
+				lamp_tween.tween_property(lamp.panel, "modulate", Color.GREEN, lamp_change_duration)
+			else:
+				lamp_tween.tween_property(lamp.panel, "modulate", Color.RED, lamp_change_duration)
 
 
 func is_complete() -> bool:

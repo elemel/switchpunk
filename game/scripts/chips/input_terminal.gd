@@ -4,12 +4,7 @@ class_name InputTerminal
 
 @export var display: Display
 @export var port: OutputPort
-
-@export var value := 0:
-	set(new_value):
-		if new_value != value:
-			value = new_value
-			update()
+@export var value := 0
 
 
 func _ready() -> void:
