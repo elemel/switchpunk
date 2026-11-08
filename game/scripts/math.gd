@@ -40,7 +40,7 @@ static func mod_8(a: int, b: int) -> int:
 
 
 static func to_signed_8(value: int) -> int:
-	return wrapi(value, -128, 127)
+	return wrapi(value, -128, 128)
 
 
 static func floor_div(a: int, b: int) -> int:
