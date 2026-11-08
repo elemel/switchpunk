@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/chips/input_terminal.tscn" id="4_s8va5"]
 [ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/chips/output_terminal.tscn" id="5_dga24"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_23ros"]
-size = Vector2(700, 1000)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]
+size = Vector2(1900, 1000)
 
 [node name="Level1" type="Node2D" unique_id=1959346673 node_paths=PackedStringArray("wires", "modules", "level_generator") groups=["levels"]]
 script = ExtResource("1_6761a")
@@ -16,11 +16,10 @@ wires = NodePath("Wires")
 modules = NodePath("Modules")
 level_generator = NodePath("LevelGenerator1")
 
-[node name="LevelGenerator1" type="Node2D" parent="." unique_id=1489487094 node_paths=PackedStringArray("level", "left_area", "right_area")]
+[node name="LevelGenerator1" type="Node2D" parent="." unique_id=1489487094 node_paths=PackedStringArray("level", "main_area")]
 script = ExtResource("2_oc4kc")
 level = NodePath("..")
-left_area = NodePath("../Areas/LeftArea")
-right_area = NodePath("../Areas/RightArea")
+main_area = NodePath("../Areas/MainArea")
 input_terminal_scene = ExtResource("4_s8va5")
 output_terminal_scene = ExtResource("5_dga24")
 wire_scene = ExtResource("3_oc4kc")
@@ -48,14 +47,7 @@ theme_override_styles/panel = ExtResource("2_sk5k4")
 
 [node name="Areas" type="Node2D" parent="." unique_id=1082984295]
 
-[node name="LeftArea" type="Area2D" parent="Areas" unique_id=1884177318]
-position = Vector2(-600, 0)
+[node name="MainArea" type="Area2D" parent="Areas" unique_id=285769062]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/LeftArea" unique_id=1180191220]
-shape = SubResource("RectangleShape2D_23ros")
-
-[node name="RightArea" type="Area2D" parent="Areas" unique_id=1884253121]
-position = Vector2(600, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/RightArea" unique_id=1444422822]
-shape = SubResource("RectangleShape2D_23ros")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/MainArea" unique_id=2119146841]
+shape = SubResource("RectangleShape2D_sk5k4")

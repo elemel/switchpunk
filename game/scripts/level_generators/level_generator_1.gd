@@ -2,8 +2,7 @@ extends LevelGenerator
 class_name LevelGenerator1
 
 @export var level: Level
-@export var left_area: Area2D
-@export var right_area: Area2D
+@export var main_area: Area2D
 
 @export var input_terminal_scene: PackedScene
 @export var output_terminal_scene: PackedScene
@@ -18,13 +17,19 @@ func _ready() -> void:
 
 
 func generate() -> void:
-	var values := generate_values(4)
+	var input_count := 4
+	var output_count := 3
+	var values := generate_values(maxi(input_count, output_count))
 
 	var input_terminals: Array[InputTerminal]
 	var output_terminals: Array[OutputTerminal]
 
-	var input_points := generate_points_in_area(left_area, values.size(), 300.0)
-	var output_points := generate_points_in_area(right_area, values.size() - 1, 400.0)
+	var points := generate_points_in_area(main_area, input_count + output_count, 400.0)
+	points.sort_custom(func(a, b): return a.x < b.x)
+	var input_points := points.slice(0, input_count)
+	var output_points := points.slice(input_count, input_count + output_count)
+	Arrays.shuffle(input_points, rng)
+	Arrays.shuffle(output_points, rng)
 
 	for i in values.size():
 		var input_terminal := input_terminal_scene.instantiate() as InputTerminal
