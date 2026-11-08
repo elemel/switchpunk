@@ -50,8 +50,9 @@ func grab() -> void:
 				drag_offset_tween.kill()
 				drag_offset_tween = null
 
-			drag_offset_tween = create_tween()
-			drag_offset_tween.tween_property(self, "drag_offset", Vector2.ZERO, 0.2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+			if dragged_node is InputPort or dragged_node is OutputPort:
+				drag_offset_tween = create_tween()
+				drag_offset_tween.tween_property(self, "drag_offset", Vector2.ZERO, 0.1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 
 
 func grab_output_port(port: OutputPort) -> void:
@@ -170,7 +171,7 @@ func drop_input_port() -> void:
 					area_parent.wire.end_port = old_input_port
 					old_input_port = null
 				else:
-					area_parent.wire.destroy()				
+					area_parent.wire.destroy()
 
 			area_parent.wire = wire
 			wire.end_port = area_parent
