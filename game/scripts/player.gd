@@ -10,6 +10,7 @@ var dragged_node: Node2D
 var drag_offset := Vector2.ZERO
 var old_input_port: InputPort
 var old_output_port: OutputPort
+var drag_offset_tween: Tween
 
 
 func _physics_process(_delta: float) -> void:
@@ -44,6 +45,13 @@ func grab() -> void:
 
 		if dragged_node != null:
 			drag_offset = dragged_node.global_position - get_global_mouse_position()
+
+			if drag_offset_tween != null:
+				drag_offset_tween.kill()
+				drag_offset_tween = null
+
+			drag_offset_tween = create_tween()
+			drag_offset_tween.tween_property(self, "drag_offset", Vector2.ZERO, 0.2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 
 
 func grab_output_port(port: OutputPort) -> void:
