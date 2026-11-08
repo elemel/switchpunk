@@ -54,7 +54,7 @@ func generate() -> void:
 	var wire := wire_scene.instantiate() as Wire
 	level.wires.add_child(wire)
 	wire.start_port = input_terminals[rng.randi_range(1, values.size() - 1)].port
-	wire.end_port = negator.port_a
+	wire.end_port = negator.input_port
 
 
 func generate_values(count: int) -> Array[int]:
