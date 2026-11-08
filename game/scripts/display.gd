@@ -6,14 +6,14 @@ class_name Display
 @export var label: Label
 @export var tween_duration := 0.2
 
-@onready var main := find_main()
-
 var text_tween: Tween
 var text_value := 0
 
 
 func _ready() -> void:
+	text_value = value
 	update_label()
+	var main := find_main()
 
 	if main != null:
 		main.format_changed.connect(_on_main_format_changed)
@@ -35,6 +35,8 @@ func _physics_process(_delta: float) -> void:
 
 
 func update_label() -> void:
+	var main := find_main()
+
 	if main != null and label != null:
 		if main.use_hex_format:
 			var unsigned_value := text_value & 0xFF
