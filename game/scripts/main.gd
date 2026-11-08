@@ -11,9 +11,11 @@ signal format_changed
 @export var start_level_index := 0
 @export var use_hex_format := false
 @export var format_button: Button
+@export var random_seed := 0
 
 var is_web := OS.has_feature("web")
 var level_index := start_level_index
+var level_seeds: Array[int]
 
 
 func _ready() -> void:
@@ -61,6 +63,16 @@ func is_level_complete() -> bool:
 
 
 func start_game() -> void:
+	level_seeds.clear()
+	var rng := RandomNumberGenerator.new()
+
+	if random_seed != 0:
+		rng.seed = random_seed
+
+	for i in level_scenes.size():
+		var level_seed := rng.randi()
+		level_seeds.push_back(level_seed)
+
 	level_index = start_level_index
 	start_level()
 
@@ -69,6 +81,10 @@ func start_level() -> void:
 	quit_level()
 	var level_scene := level_scenes[level_index]
 	var level = level_scene.instantiate() as Level
+
+	if level.level_generator != null:
+		level.level_generator.random_seed = level_seeds[level_index]
+
 	levels.add_child(level)
 
 
