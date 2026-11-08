@@ -7,6 +7,7 @@
 [node name="Display" type="Node2D" unique_id=934708420 node_paths=PackedStringArray("label")]
 script = ExtResource("1_v8cgk")
 label = NodePath("Label")
+tween_duration = null
 
 [node name="Panel" type="Panel" parent="." unique_id=255944672]
 anchors_preset = 8
