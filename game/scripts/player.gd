@@ -1,6 +1,7 @@
 extends Node2D
 class_name Player
 
+@export var main: Main
 @export var wire_scene: PackedScene
 @export var output_port_scene: PackedScene
 @export var input_port_scene: PackedScene
@@ -12,6 +13,11 @@ var old_output_port: OutputPort
 
 
 func _physics_process(_delta: float) -> void:
+	var level := main.find_level()
+
+	if level == null or level.complete:
+		return
+
 	if Input.is_action_just_pressed("grab"):
 		grab()
 

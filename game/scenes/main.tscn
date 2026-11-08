@@ -25,8 +25,9 @@ level_scenes = Array[PackedScene]([ExtResource("2_jkv2x"), ExtResource("6_trceg"
 levels = NodePath("Levels")
 format_button = NodePath("Screens/Overlay/Control/FormatButton")
 
-[node name="Player" type="Node2D" parent="." unique_id=457860793]
+[node name="Player" type="Node2D" parent="." unique_id=457860793 node_paths=PackedStringArray("main")]
 script = ExtResource("1_tbgi4")
+main = NodePath("..")
 wire_scene = ExtResource("4_jyhfs")
 output_port_scene = ExtResource("3_tipki")
 input_port_scene = ExtResource("4_85g3d")

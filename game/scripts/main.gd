@@ -11,12 +11,9 @@ signal format_changed
 @export var start_level_index := 0
 @export var use_hex_format := false
 @export var format_button: Button
-@export var fade_duration := 2.0
 
 var is_web := OS.has_feature("web")
 var level_index := start_level_index
-var fading := false
-var fade_progress := 0.0
 
 
 func _ready() -> void:
@@ -25,7 +22,9 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if find_level() == null:
+	var level := find_level()
+
+	if level == null or level.complete:
 		return
 
 	if event.is_action_pressed("pause"):
@@ -37,32 +36,17 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 
-func _physics_process(delta: float) -> void:
-	if is_level_complete() and not fading:
-		fading = true
-		fade_progress = 0.0
-
-	if fading:
-		fade_progress += delta / fade_duration
-
+func _physics_process(_delta: float) -> void:
 	var level := find_level()
 
-	if level != null:
-		var fade_weight := smoothstep(0.0, 1.0, fade_progress) if fading else 0.0
-		level.modulate = Color.WHITE.lerp(Color.BLACK, fade_weight)
-
-	if fading and fade_progress >= 1.0:
-		fading = false
-
-		quit_level()
+	if level != null && is_level_complete() && not level.complete:
+		level.complete = true
 		level_index += 1
 
 		if level_index < level_scenes.size():
-			level_complete_screen.visible = true
-			level_complete_screen.continue_button.grab_focus()
+			level_complete_screen.open()
 		else:
-			win_screen.visible = true
-			win_screen.continue_button.grab_focus()
+			win_screen.open()
 
 
 func is_level_complete() -> bool:
@@ -89,7 +73,6 @@ func start_level() -> void:
 
 
 func quit_level() -> void:
-	fading = false
 	var level := find_level()
 
 	if level != null:
