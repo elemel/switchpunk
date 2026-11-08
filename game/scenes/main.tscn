@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://cw2cirah7xdc0" path="res://scenes/levels/level_1.tscn" id="2_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://byaeh6ahs4sw7" path="res://scenes/output_port.tscn" id="3_tipki"]
 [ext_resource type="PackedScene" uid="uid://cnjbj6uejr56e" path="res://scenes/input_port.tscn" id="4_85g3d"]
-[ext_resource type="PackedScene" uid="uid://b3jr0dd4d3iu2" path="res://scenes/levels/level_4.tscn" id="4_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://daahylqog1jun" path="res://scenes/levels/level_3.tscn" id="4_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://r2y041fo0bby" path="res://scenes/wire.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://07v41kwtj1gy" path="res://scenes/levels/level_2.tscn" id="6_trceg"]
@@ -22,7 +21,7 @@ script = ExtResource("1_tefeu")
 pause_screen = NodePath("Screens/PauseScreen")
 level_complete_screen = NodePath("Screens/LevelCompleteScreen")
 win_screen = NodePath("Screens/WinScreen")
-level_scenes = Array[PackedScene]([ExtResource("2_jkv2x"), ExtResource("6_trceg"), ExtResource("4_jkv2x"), ExtResource("4_eb6dy")])
+level_scenes = Array[PackedScene]([ExtResource("2_jkv2x"), ExtResource("6_trceg"), ExtResource("4_jkv2x")])
 levels = NodePath("Levels")
 format_button = NodePath("Screens/Overlay/Control/FormatButton")
 
