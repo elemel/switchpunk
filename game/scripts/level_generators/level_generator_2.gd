@@ -18,29 +18,27 @@ func _ready() -> void:
 
 
 func generate() -> void:
-	var input_count := 3
-	var output_count := 2
-	var values := generate_values(maxi(input_count, output_count))
+	var values := generate_values(3)
 
-	var points := generate_points_in_area(main_area, input_count + output_count + 1, 400.0)
+	var points := generate_points_in_area(main_area, 2 * values.size() + 1, 400.0)
 	points.sort_custom(func(a, b): return a.x < b.x)
-	var input_points := points.slice(0, input_count)
-	var negator_point := points[input_count]
-	var output_points := points.slice(input_count + 1, input_count + output_count + 1)
+	var input_points := points.slice(0, values.size())
+	var negator_point := points[values.size()]
+	var output_points := points.slice(values.size() + 1, 2 * values.size() + 1)
 	Arrays.shuffle(input_points, rng)
 	Arrays.shuffle(output_points, rng)
 
 	var input_terminals: Array[InputTerminal]
 	var output_terminals: Array[OutputTerminal]
 
-	for i in input_count:
+	for i in values.size():
 		var input_terminal := input_terminal_scene.instantiate() as InputTerminal
 		input_terminal.position = input_points[i]
 		input_terminal.value = values[i]
 		level.modules.add_child(input_terminal)
 		input_terminals.append(input_terminal)
 
-	for i in output_count:
+	for i in values.size():
 		var output_terminal := output_terminal_scene.instantiate() as OutputTerminal
 		output_terminal.position = output_points[i]
 		output_terminal.value = values[i]
@@ -55,7 +53,7 @@ func generate() -> void:
 
 	var wire := wire_scene.instantiate() as Wire
 	level.wires.add_child(wire)
-	wire.start_port = input_terminals[rng.randi_range(1, input_count - 1)].port
+	wire.start_port = input_terminals[rng.randi_range(1, values.size() - 1)].port
 	wire.end_port = negator.port_a
 
 
