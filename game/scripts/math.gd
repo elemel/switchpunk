@@ -5,6 +5,14 @@ static func neg_8(value: int) -> int:
 	return to_signed_8(-value)
 
 
+static func inc_8(value: int) -> int:
+	return to_signed_8(value + 1)
+
+
+static func dec_8(value: int) -> int:
+	return to_signed_8(value - 1)
+
+
 static func add_8(a: int, b: int) -> int:
 	return to_signed_8(a + b)
 

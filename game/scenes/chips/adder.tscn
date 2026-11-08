@@ -57,5 +57,6 @@ text = "ADD"
 
 [node name="Display" parent="." unique_id=934708420 instance=ExtResource("6_ixpkr")]
 position = Vector2(0, 50)
+tween_duration = 0.2
 
 [editable path="Label"]
