@@ -1,6 +1,10 @@
 class_name Math
 
 
+static func neg_8(a: int) -> int:
+	return to_signed_8(-a)
+
+
 static func add_8(a: int, b: int) -> int:
 	return to_signed_8(a + b)
 

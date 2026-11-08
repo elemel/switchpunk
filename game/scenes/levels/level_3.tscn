@@ -1,17 +1,14 @@
-[gd_scene format=3 uid="uid://b3jr0dd4d3iu2"]
+[gd_scene format=3 uid="uid://daahylqog1jun"]
 
-[ext_resource type="Script" uid="uid://dmsna1rt3wpv4" path="res://scripts/level.gd" id="1_ftfob"]
-[ext_resource type="StyleBox" uid="uid://da3cp4cmwmv88" path="res://styles/board_style.tres" id="2_fkk1g"]
-[ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/chips/input_terminal.tscn" id="3_ugcn1"]
-[ext_resource type="PackedScene" uid="uid://pem4rfwsjukl" path="res://scenes/chips/adder.tscn" id="4_pimnq"]
-[ext_resource type="PackedScene" uid="uid://41qoy364auiq" path="res://scenes/chips/subtractor.tscn" id="5_2bnyt"]
-[ext_resource type="PackedScene" uid="uid://dt5ncm1mmohd2" path="res://scenes/chips/multiplier.tscn" id="6_fkk1g"]
-[ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/chips/output_terminal.tscn" id="6_n6eey"]
-[ext_resource type="PackedScene" uid="uid://fyw038t8ida5" path="res://scenes/chips/divider.tscn" id="8_ugcn1"]
-[ext_resource type="PackedScene" uid="uid://urk67cm88ydh" path="res://scenes/chips/modulo.tscn" id="9_pimnq"]
+[ext_resource type="Script" uid="uid://dmsna1rt3wpv4" path="res://scripts/level.gd" id="1_l37oo"]
+[ext_resource type="StyleBox" uid="uid://da3cp4cmwmv88" path="res://styles/board_style.tres" id="2_qpwj6"]
+[ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/chips/input_terminal.tscn" id="4_8qukl"]
+[ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/chips/output_terminal.tscn" id="5_3p04p"]
+[ext_resource type="PackedScene" uid="uid://41qoy364auiq" path="res://scenes/chips/subtractor.tscn" id="6_ibugp"]
+[ext_resource type="PackedScene" uid="uid://pem4rfwsjukl" path="res://scenes/chips/adder.tscn" id="6_qpwj6"]
 
 [node name="Level3" type="Node2D" unique_id=1959346673 node_paths=PackedStringArray("wires") groups=["levels"]]
-script = ExtResource("1_ftfob")
+script = ExtResource("1_l37oo")
 wires = NodePath("Wires")
 
 [node name="Board" type="Node2D" parent="." unique_id=235852790]
@@ -28,71 +25,38 @@ offset_right = 1225.0
 offset_bottom = 700.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("2_fkk1g")
+theme_override_styles/panel = ExtResource("2_qpwj6")
 
 [node name="Wires" type="Node2D" parent="." unique_id=1347272993]
 
 [node name="Modules" type="Node2D" parent="." unique_id=87758095]
 
-[node name="InputTerminal" parent="Modules" unique_id=319058681 instance=ExtResource("3_ugcn1")]
-position = Vector2(-900, -500)
+[node name="InputTerminal" parent="Modules" unique_id=319058681 instance=ExtResource("4_8qukl")]
+position = Vector2(-700, -300)
+value = 109
+
+[node name="InputTerminal2" parent="Modules" unique_id=741920644 instance=ExtResource("4_8qukl")]
+position = Vector2(-700, -100)
 value = -38
 
-[node name="InputTerminal2" parent="Modules" unique_id=741920644 instance=ExtResource("3_ugcn1")]
-position = Vector2(-900, -400)
-value = -43
+[node name="InputTerminal3" parent="Modules" unique_id=1925253035 instance=ExtResource("4_8qukl")]
+position = Vector2(-700, 100)
+value = -122
 
-[node name="InputTerminal3" parent="Modules" unique_id=1925253035 instance=ExtResource("3_ugcn1")]
-position = Vector2(-900, -300)
-value = 59
+[node name="InputTerminal4" parent="Modules" unique_id=2016905390 instance=ExtResource("4_8qukl")]
+position = Vector2(-700, 300)
+value = 104
 
-[node name="InputTerminal4" parent="Modules" unique_id=2016905390 instance=ExtResource("3_ugcn1")]
-position = Vector2(-900, -200)
-value = -119
+[node name="Adder" parent="Modules" unique_id=567054835 instance=ExtResource("6_qpwj6")]
+position = Vector2(0, -200)
 
-[node name="InputTerminal5" parent="Modules" unique_id=2113252130 instance=ExtResource("3_ugcn1")]
-position = Vector2(-900, -100)
-value = -92
+[node name="Subtractor" parent="Modules" unique_id=2118604933 instance=ExtResource("6_ibugp")]
+position = Vector2(0, 200)
 
-[node name="InputTerminal6" parent="Modules" unique_id=1590618713 instance=ExtResource("3_ugcn1")]
-position = Vector2(-900, 0)
-value = -112
+[node name="OutputTerminal" parent="Modules" unique_id=1820310394 instance=ExtResource("5_3p04p")]
+position = Vector2(700, -200)
+value = 24
 
-[node name="InputTerminal7" parent="Modules" unique_id=40559335 instance=ExtResource("3_ugcn1")]
-position = Vector2(-900, 100)
-value = 64
-
-[node name="InputTerminal8" parent="Modules" unique_id=311678995 instance=ExtResource("3_ugcn1")]
-position = Vector2(-900, 200)
-value = 81
-
-[node name="OutputTerminal" parent="Modules" unique_id=1820310394 instance=ExtResource("6_n6eey")]
-position = Vector2(850, -300)
-value = -3
-
-[node name="OutputTerminal2" parent="Modules" unique_id=1102965120 instance=ExtResource("6_n6eey")]
-position = Vector2(850, -200)
-value = -112
-
-[node name="OutputTerminal3" parent="Modules" unique_id=945546271 instance=ExtResource("6_n6eey")]
-position = Vector2(850, -100)
-value = 103
-
-[node name="OutputTerminal4" parent="Modules" unique_id=1822402902 instance=ExtResource("6_n6eey")]
-position = Vector2(850, 0)
-value = -74
-
-[node name="Adder" parent="Modules" unique_id=567054835 instance=ExtResource("4_pimnq")]
-position = Vector2(-900, 500)
-
-[node name="Subtractor" parent="Modules" unique_id=2118604933 instance=ExtResource("5_2bnyt")]
-position = Vector2(-450, 500)
-
-[node name="Multiplier" parent="Modules" unique_id=1944656182 instance=ExtResource("6_fkk1g")]
-position = Vector2(0, 500)
-
-[node name="Divider" parent="Modules" unique_id=744807753 instance=ExtResource("8_ugcn1")]
-position = Vector2(450, 500)
-
-[node name="Modulo" parent="Modules" unique_id=1261500666 instance=ExtResource("9_pimnq")]
-position = Vector2(900, 500)
+[node name="OutputTerminal2" parent="Modules" unique_id=1220780692 instance=ExtResource("5_3p04p")]
+position = Vector2(700, 200)
+value = 66
