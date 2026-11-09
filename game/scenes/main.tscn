@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cnjbj6uejr56e" path="res://scenes/input_port.tscn" id="4_85g3d"]
 [ext_resource type="PackedScene" uid="uid://daahylqog1jun" path="res://scenes/levels/level_6.tscn" id="4_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://r2y041fo0bby" path="res://scenes/wire.tscn" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://07v41kwtj1gy" path="res://scenes/levels/level_2.tscn" id="6_trceg"]
+[ext_resource type="PackedScene" uid="uid://07v41kwtj1gy" path="res://scenes/levels/level_3.tscn" id="6_trceg"]
 [ext_resource type="PackedScene" uid="uid://dm631n4m2a87i" path="res://scenes/screens/pause_screen.tscn" id="8_choun"]
 [ext_resource type="Theme" uid="uid://dg5c5uk18l0pn" path="res://themes/overlay_theme.tres" id="9_a8y0u"]
 [ext_resource type="StyleBox" uid="uid://d3qseubm28vrq" path="res://styles/overlay_style.tres" id="9_trceg"]
@@ -23,7 +23,7 @@ level_complete_screen = NodePath("Screens/LevelCompleteScreen")
 win_screen = NodePath("Screens/WinScreen")
 level_scenes = Array[PackedScene]([ExtResource("2_jkv2x"), ExtResource("6_trceg"), ExtResource("4_jkv2x")])
 levels = NodePath("Levels")
-start_level_index = 2
+start_level_index = 1
 format_button = NodePath("Screens/Overlay/Control/FormatButton")
 
 [node name="Player" type="Node2D" parent="." unique_id=457860793 node_paths=PackedStringArray("main")]
