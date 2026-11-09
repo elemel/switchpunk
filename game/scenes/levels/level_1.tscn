@@ -28,7 +28,7 @@ metadata/_custom_type_script = "uid://bvl5c3e1dm4sl"
 
 [node name="Board" type="Node2D" parent="." unique_id=235852790]
 
-[node name="Panel" type="Panel" parent="Board" unique_id=1074289510]
+[node name="BackgroundPanel" type="Panel" parent="Board" unique_id=1074289510]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -42,7 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("6_oc4kc")
 
-[node name="Panel2" type="Panel" parent="Board" unique_id=252200207]
+[node name="BoardPanel" type="Panel" parent="Board" unique_id=252200207]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

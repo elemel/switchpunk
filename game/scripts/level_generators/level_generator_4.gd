@@ -7,7 +7,6 @@ class_name LevelGenerator4
 @export var input_terminal_scene: PackedScene
 @export var output_terminal_scene: PackedScene
 @export var decrementer_scene: PackedScene
-@export var wire_scene: PackedScene
 
 var rng := RandomNumberGenerator.new()
 
@@ -28,22 +27,17 @@ func generate() -> void:
 	Arrays.shuffle(input_points, rng)
 	Arrays.shuffle(output_points, rng)
 
-	var input_terminals: Array[InputTerminal]
-	var output_terminals: Array[OutputTerminal]
-
 	for i in 2:
 		var input_terminal := input_terminal_scene.instantiate() as InputTerminal
 		input_terminal.position = input_points[i]
 		input_terminal.value = values[i]
 		level.modules.add_child(input_terminal)
-		input_terminals.append(input_terminal)
 
 	for i in 2:
 		var output_terminal := output_terminal_scene.instantiate() as OutputTerminal
 		output_terminal.position = output_points[i]
 		output_terminal.value = Math.dec_8(values[0]) if i == 0 else values[1]
 		level.modules.add_child(output_terminal)
-		output_terminals.append(output_terminal)
 
 	var decrementer := decrementer_scene.instantiate() as Decrementer
 	decrementer.position = decrementer_point
