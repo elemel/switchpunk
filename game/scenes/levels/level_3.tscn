@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://djtrdvyj6qm57" path="res://scenes/chips/incrementer.tscn" id="5_3p04p"]
 [ext_resource type="PackedScene" uid="uid://r2y041fo0bby" path="res://scenes/wire.tscn" id="5_8qukl"]
 [ext_resource type="PackedScene" uid="uid://pem4rfwsjukl" path="res://scenes/chips/adder.tscn" id="6_qsp8v"]
+[ext_resource type="StyleBox" uid="uid://d1hf2lpanq1rc" path="res://styles/background_style.tres" id="8_pimnq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]
 size = Vector2(1900, 1000)
@@ -31,7 +32,7 @@ metadata/_custom_type_script = "uid://bxrn4j6sojwrx"
 
 [node name="Board" type="Node2D" parent="." unique_id=235852790]
 
-[node name="Panel" type="Panel" parent="Board" unique_id=1488992448]
+[node name="Panel" type="Panel" parent="Board" unique_id=1256772649]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -41,6 +42,20 @@ offset_left = -1225.0
 offset_top = -700.0
 offset_right = 1225.0
 offset_bottom = 700.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("8_pimnq")
+
+[node name="Panel2" type="Panel" parent="Board" unique_id=1526441422]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1150.0
+offset_top = -625.0
+offset_right = 1150.0
+offset_bottom = 625.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("2_qpwj6")
