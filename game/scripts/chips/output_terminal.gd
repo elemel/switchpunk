@@ -6,9 +6,7 @@ class_name OutputTerminal
 @export var lamp: Lamp
 @export var display: Display
 @export var lamp_change_duration := 0.1
-
 @export var value := 0
-
 
 var lamp_tween: Tween
 var lamp_complete := false
@@ -30,7 +28,7 @@ func update() -> void:
 
 func update_display() -> void:
 	if display != null:
-		display.value = value
+		display.value = value - get_input_value()
 
 
 func update_lamp() -> void:
