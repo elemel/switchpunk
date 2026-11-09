@@ -17,41 +17,36 @@ func _ready() -> void:
 
 
 func generate() -> void:
-	var values := generate_values(3)
+	var values := generate_values(2)
 
-	var points := generate_points_in_area(main_area, 2 * values.size(), 400.0)
+	var points := Generators.generate_points_in_area(rng, main_area, 4, 400.0)
 	points.sort_custom(func(a, b): return a.x < b.x)
-	var input_points := points.slice(0, values.size())
-	var output_points := points.slice(values.size(), 2 * values.size())
+	var input_points := points.slice(0, 2)
+	var output_points := points.slice(2, 4)
 	Arrays.shuffle(input_points, rng)
 	Arrays.shuffle(output_points, rng)
 
 	var input_terminals: Array[InputTerminal]
 	var output_terminals: Array[OutputTerminal]
 
-	for i in values.size():
+	for i in 2:
 		var input_terminal := input_terminal_scene.instantiate() as InputTerminal
 		input_terminal.position = input_points[i]
 		input_terminal.value = values[i]
 		level.modules.add_child(input_terminal)
 		input_terminals.append(input_terminal)
 
-	for i in values.size():
+	for i in 2:
 		var output_terminal := output_terminal_scene.instantiate() as OutputTerminal
 		output_terminal.position = output_points[i]
 		output_terminal.value = values[i]
 		level.modules.add_child(output_terminal)
 		output_terminals.append(output_terminal)
 
-	var wire_a := wire_scene.instantiate() as Wire
-	level.wires.add_child(wire_a)
-	wire_a.start_port = input_terminals[0].port
-	wire_a.end_port = output_terminals[0].port
-
-	var wire_b := wire_scene.instantiate() as Wire
-	level.wires.add_child(wire_b)
-	wire_b.start_port = input_terminals[1].port
-	wire_b.end_port = output_terminals[2].port
+	var wire := wire_scene.instantiate() as Wire
+	level.wires.add_child(wire)
+	wire.start_port = input_terminals[0].port
+	wire.end_port = output_terminals[0].port
 
 
 func generate_values(count: int) -> Array[int]:
@@ -64,30 +59,3 @@ func generate_values(count: int) -> Array[int]:
 			values.push_back(value)
 
 	return values
-
-
-func generate_points_in_area(area: Area2D, count: int, min_distance: float) -> Array[Vector2]:
-	var shape_owner = area.shape_find_owner(0)
-	var collision_shape = area.shape_owner_get_owner(shape_owner) as CollisionShape2D
-	var rect_shape = collision_shape.shape as RectangleShape2D
-	var extents = rect_shape.extents
-
-	var points: Array[Vector2] = []
-
-	while points.size() < count:
-		var local_point = Vector2(
-			rng.randf_range(-extents.x, extents.x),
-			rng.randf_range(-extents.y, extents.y)
-		)
-		var global_point = collision_shape.global_transform * local_point
-		
-		var too_close = false
-		for existing_point in points:
-			if global_point.distance_to(existing_point) < min_distance:
-				too_close = true
-				break
-				
-		if not too_close:
-			points.append(global_point)
-			
-	return points
