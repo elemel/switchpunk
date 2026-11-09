@@ -1,5 +1,5 @@
 extends LevelGenerator
-class_name LevelGenerator3
+class_name LevelGenerator6
 
 @export var level: Level
 @export var main_area: Area2D

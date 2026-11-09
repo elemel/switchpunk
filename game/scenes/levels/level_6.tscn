@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://daahylqog1jun"]
 
 [ext_resource type="Script" uid="uid://dmsna1rt3wpv4" path="res://scripts/level.gd" id="1_l37oo"]
-[ext_resource type="Script" uid="uid://c8oipl3q17kbk" path="res://scripts/level_generators/level_generator_3.gd" id="2_fkk1g"]
+[ext_resource type="Script" uid="uid://c8oipl3q17kbk" path="res://scripts/level_generators/level_generator_6.gd" id="2_b6i88"]
 [ext_resource type="StyleBox" uid="uid://da3cp4cmwmv88" path="res://styles/board_style.tres" id="2_qpwj6"]
 [ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/chips/input_terminal.tscn" id="4_8qukl"]
 [ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/chips/output_terminal.tscn" id="5_3p04p"]
@@ -12,14 +12,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ljxa"]
 size = Vector2(1900, 1000)
 
-[node name="Level3" type="Node2D" unique_id=1959346673 node_paths=PackedStringArray("wires", "modules", "level_generator") groups=["levels"]]
+[node name="Level6" type="Node2D" unique_id=1959346673 node_paths=PackedStringArray("wires", "modules", "level_generator") groups=["levels"]]
 script = ExtResource("1_l37oo")
 wires = NodePath("Wires")
 modules = NodePath("Modules")
-level_generator = NodePath("LevelGenerator3")
+level_generator = NodePath("LevelGenerator6")
 
-[node name="LevelGenerator3" type="Node2D" parent="." unique_id=1305753656 node_paths=PackedStringArray("level", "main_area")]
-script = ExtResource("2_fkk1g")
+[node name="LevelGenerator6" type="Node2D" parent="." unique_id=1305753656 node_paths=PackedStringArray("level", "main_area")]
+script = ExtResource("2_b6i88")
 level = NodePath("..")
 main_area = NodePath("../Areas/MainArea")
 input_terminal_scene = ExtResource("4_8qukl")
