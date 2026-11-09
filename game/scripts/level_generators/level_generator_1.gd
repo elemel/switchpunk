@@ -53,7 +53,7 @@ func generate_values(count: int) -> Array[int]:
 	var values: Array[int]
 
 	while values.size() < count:
-		var value := rng.randi_range(-128, 127)
+		var value := rng.randi_range(1, 15)
 
 		if value != 0 and value not in values:
 			values.push_back(value)
