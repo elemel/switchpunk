@@ -2,13 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dmsna1rt3wpv4" path="res://scripts/level.gd" id="1_l37oo"]
 [ext_resource type="Script" uid="uid://c8oipl3q17kbk" path="res://scripts/level_generators/level_generator_6.gd" id="2_b6i88"]
-[ext_resource type="StyleBox" uid="uid://da3cp4cmwmv88" path="res://styles/board_style.tres" id="2_qpwj6"]
 [ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/chips/input_terminal.tscn" id="4_8qukl"]
 [ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/chips/output_terminal.tscn" id="5_3p04p"]
 [ext_resource type="PackedScene" uid="uid://cgud4gj6adbgp" path="res://scenes/chips/decrementer.tscn" id="5_ugcn1"]
 [ext_resource type="PackedScene" uid="uid://dlq1glodr6sw6" path="res://scenes/chips/negator.tscn" id="6_pimnq"]
 [ext_resource type="PackedScene" uid="uid://41qoy364auiq" path="res://scenes/chips/subtractor.tscn" id="7_2bnyt"]
-[ext_resource type="StyleBox" uid="uid://d1hf2lpanq1rc" path="res://styles/background_style.tres" id="8_e18e5"]
+[ext_resource type="PackedScene" uid="uid://qefenx2baiga" path="res://scenes/board.tscn" id="8_b6i88"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ljxa"]
 size = Vector2(1900, 1000)
@@ -30,39 +29,11 @@ negator_scene = ExtResource("6_pimnq")
 subtractor_scene = ExtResource("7_2bnyt")
 metadata/_custom_type_script = "uid://c8oipl3q17kbk"
 
-[node name="Board" type="Node2D" parent="." unique_id=235852790]
-
-[node name="BackgroundPanel" type="Panel" parent="Board" unique_id=1257757307]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1225.0
-offset_top = -700.0
-offset_right = 1225.0
-offset_bottom = 700.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("8_e18e5")
-
-[node name="BoardPanel" type="Panel" parent="Board" unique_id=1789800164]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1150.0
-offset_top = -625.0
-offset_right = 1150.0
-offset_bottom = 625.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("2_qpwj6")
-
 [node name="Wires" type="Node2D" parent="." unique_id=1347272993]
 
 [node name="Modules" type="Node2D" parent="." unique_id=87758095]
+
+[node name="Board" parent="." unique_id=1988669163 instance=ExtResource("8_b6i88")]
 
 [node name="Areas" type="Node2D" parent="." unique_id=1065487470]
 

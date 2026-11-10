@@ -5,9 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/chips/input_terminal.tscn" id="3_glw47"]
 [ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/chips/output_terminal.tscn" id="4_4wsov"]
 [ext_resource type="PackedScene" uid="uid://cgud4gj6adbgp" path="res://scenes/chips/decrementer.tscn" id="5_5vn0v"]
-[ext_resource type="PackedScene" uid="uid://r2y041fo0bby" path="res://scenes/wire.tscn" id="7_fcb7b"]
-[ext_resource type="StyleBox" uid="uid://d1hf2lpanq1rc" path="res://styles/background_style.tres" id="7_ts8eg"]
-[ext_resource type="StyleBox" uid="uid://da3cp4cmwmv88" path="res://styles/board_style.tres" id="8_ov8fk"]
+[ext_resource type="PackedScene" uid="uid://qefenx2baiga" path="res://scenes/board.tscn" id="6_rej77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]
 size = Vector2(1900, 1000)
@@ -25,38 +23,9 @@ main_area = NodePath("../Areas/MainArea")
 input_terminal_scene = ExtResource("3_glw47")
 output_terminal_scene = ExtResource("4_4wsov")
 decrementer_scene = ExtResource("5_5vn0v")
-wire_scene = ExtResource("7_fcb7b")
 metadata/_custom_type_script = "uid://bdbegq20j1wk2"
 
-[node name="Board" type="Node2D" parent="." unique_id=235852790]
-
-[node name="BackgroundPanel" type="Panel" parent="Board" unique_id=1488992448]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1225.0
-offset_top = -700.0
-offset_right = 1225.0
-offset_bottom = 700.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("7_ts8eg")
-
-[node name="BoardPanel" type="Panel" parent="Board" unique_id=702113686]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1150.0
-offset_top = -625.0
-offset_right = 1150.0
-offset_bottom = 625.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("8_ov8fk")
+[node name="Board" parent="." unique_id=1988669163 instance=ExtResource("6_rej77")]
 
 [node name="Wires" type="Node2D" parent="." unique_id=1347272993]
 
