@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://qefenx2baiga"]
 
-[ext_resource type="StyleBox" uid="uid://d1hf2lpanq1rc" path="res://styles/background_style.tres" id="1_tx6nw"]
 [ext_resource type="StyleBox" uid="uid://da3cp4cmwmv88" path="res://styles/board_style.tres" id="2_nglv8"]
 
 [node name="Board" type="Node2D" unique_id=1988669163]
 
-[node name="BackgroundPanel" type="Panel" parent="." unique_id=909605981]
+[node name="Panel" type="Panel" parent="." unique_id=909605981]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -15,20 +14,6 @@ offset_left = -1225.0
 offset_top = -700.0
 offset_right = 1225.0
 offset_bottom = 700.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("1_tx6nw")
-
-[node name="BoardPanel" type="Panel" parent="." unique_id=1381108815]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1150.0
-offset_top = -625.0
-offset_right = 1150.0
-offset_bottom = 625.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("2_nglv8")
