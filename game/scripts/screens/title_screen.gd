@@ -2,6 +2,7 @@ extends CanvasLayer
 class_name TitleScreen
 
 @export var main: Main
+@export var new_game_screen: NewGameScreen
 @export var start_button: Button
 @export var exit_button: Button
 
@@ -12,8 +13,16 @@ func _ready() -> void:
 	if is_web:
 		exit_button.visible = false
 
+	open()
+
+
+func open():
 	visible = true
 	start_button.grab_focus()
+
+
+func close():
+	visible = false
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -23,8 +32,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _on_new_game_button_pressed() -> void:
-	visible = false
-	main.start_game()
+	close()
+	new_game_screen.open()
 	get_viewport().set_input_as_handled()
 
 

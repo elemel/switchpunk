@@ -97,9 +97,7 @@ func quit_level() -> void:
 
 
 func pause() -> void:
-	get_tree().paused = true
-	pause_screen.visible = true
-	pause_screen.resume_button.grab_focus()
+	pause_screen.open()
 
 
 func find_level() -> Level:

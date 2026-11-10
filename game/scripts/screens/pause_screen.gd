@@ -14,38 +14,46 @@ func _ready() -> void:
 	visible = false
 
 
+func open() -> void:
+	visible = true
+	get_tree().paused = true
+	resume_button.grab_focus()
+
+
+func close() -> void:
+	visible = false
+	get_tree().paused = false
+
+
 func _on_resume_button_pressed() -> void:
-	resume()
+	close()
 	get_viewport().set_input_as_handled()
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if visible and event.is_action_pressed("pause"):
-		resume()
+	if not visible:
+		return
+
+
+	if event.is_action_pressed("pause"):
+		close()
 		get_viewport().set_input_as_handled()
+		return
 
-	if visible and event.is_action_pressed("ui_cancel") and not is_web:
-		resume()
+	if event.is_action_pressed("ui_cancel") and not is_web:
+		close()
 		get_viewport().set_input_as_handled()
-
-
-func resume() -> void:
-	get_tree().paused = false
-	visible = false
+		return
 
 
 func _on_quit_game_button_pressed() -> void:
 	main.quit_level()
-
-	get_tree().paused = false
-	visible = false
-
-	title_screen.visible = true
-	title_screen.start_button.grab_focus()
+	close()
+	title_screen.open()
 	get_viewport().set_input_as_handled()
 
 
 func _on_restart_level_button_pressed() -> void:
 	main.start_level()
-	resume()
+	close()
 	get_viewport().set_input_as_handled()

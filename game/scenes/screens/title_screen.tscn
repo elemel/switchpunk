@@ -11,10 +11,9 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ya4ey"]
 bg_color = Color(0, 0, 0, 1)
 
-[node name="TitleScreen" type="CanvasLayer" unique_id=1268018315 node_paths=PackedStringArray("main", "start_button", "exit_button")]
+[node name="TitleScreen" type="CanvasLayer" unique_id=1268018315 node_paths=PackedStringArray("start_button", "exit_button")]
 visible = false
 script = ExtResource("1_2neum")
-main = NodePath("")
 start_button = NodePath("VBoxContainer/NewGameButton")
 exit_button = NodePath("VBoxContainer/ExitButton")
 

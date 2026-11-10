@@ -16,6 +16,7 @@
 [ext_resource type="StyleBox" uid="uid://d3qseubm28vrq" path="res://styles/overlay_style.tres" id="9_trceg"]
 [ext_resource type="PackedScene" uid="uid://sisapj6tq7i3" path="res://scenes/screens/title_screen.tscn" id="9_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://c1l5jn0w8l52o" path="res://scenes/screens/level_complete_screen.tscn" id="10_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://dewqulu7o362b" path="res://scenes/screens/new_game_screen.tscn" id="15_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://b4ulq4lqvh81k" path="res://scenes/screens/win_screen.tscn" id="16_jbj1t"]
 
 [node name="Main" type="Node2D" unique_id=1967515149 node_paths=PackedStringArray("pause_screen", "level_complete_screen", "win_screen", "levels", "format_button") groups=["mains"]]
@@ -110,8 +111,13 @@ theme_override_styles/disabled = ExtResource("9_trceg")
 theme_override_styles/focus = ExtResource("9_trceg")
 text = "DEC"
 
-[node name="TitleScreen" parent="Screens" unique_id=1268018315 node_paths=PackedStringArray("main") instance=ExtResource("9_ya4ey")]
+[node name="TitleScreen" parent="Screens" unique_id=1268018315 node_paths=PackedStringArray("main", "new_game_screen") instance=ExtResource("9_ya4ey")]
 main = NodePath("../..")
+new_game_screen = NodePath("../NewGameScreen")
+
+[node name="NewGameScreen" parent="Screens" unique_id=947293708 node_paths=PackedStringArray("main", "title_screen") instance=ExtResource("15_dp3eg")]
+main = NodePath("../..")
+title_screen = NodePath("../TitleScreen")
 
 [node name="PauseScreen" parent="Screens" unique_id=1946852061 node_paths=PackedStringArray("main", "title_screen") instance=ExtResource("8_choun")]
 visible = false
