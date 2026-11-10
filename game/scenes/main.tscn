@@ -116,6 +116,7 @@ main = NodePath("../..")
 new_game_screen = NodePath("../NewGameScreen")
 
 [node name="NewGameScreen" parent="Screens" unique_id=947293708 node_paths=PackedStringArray("main", "title_screen") instance=ExtResource("15_dp3eg")]
+visible = false
 main = NodePath("../..")
 title_screen = NodePath("../TitleScreen")
 
