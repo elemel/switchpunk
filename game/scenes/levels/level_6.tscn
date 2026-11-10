@@ -29,11 +29,11 @@ negator_scene = ExtResource("6_pimnq")
 subtractor_scene = ExtResource("7_2bnyt")
 metadata/_custom_type_script = "uid://c8oipl3q17kbk"
 
+[node name="Board" parent="." unique_id=1988669163 instance=ExtResource("8_b6i88")]
+
 [node name="Wires" type="Node2D" parent="." unique_id=1347272993]
 
 [node name="Modules" type="Node2D" parent="." unique_id=87758095]
-
-[node name="Board" parent="." unique_id=1988669163 instance=ExtResource("8_b6i88")]
 
 [node name="Areas" type="Node2D" parent="." unique_id=1065487470]
 
