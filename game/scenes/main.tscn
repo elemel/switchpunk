@@ -11,8 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://b4xrek36cq7ev" path="res://scenes/levels/level_4.tscn" id="5_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://t4u73vmw4223" path="res://scenes/levels/level_5.tscn" id="6_muem4"]
 [ext_resource type="PackedScene" uid="uid://07v41kwtj1gy" path="res://scenes/levels/level_3.tscn" id="6_trceg"]
+[ext_resource type="Script" uid="uid://cy5wr1f0hrcj3" path="res://scripts/game_controller.gd" id="8_0ld40"]
 [ext_resource type="PackedScene" uid="uid://dm631n4m2a87i" path="res://scenes/screens/pause_screen.tscn" id="8_choun"]
 [ext_resource type="Theme" uid="uid://dg5c5uk18l0pn" path="res://themes/overlay_theme.tres" id="9_a8y0u"]
+[ext_resource type="Script" uid="uid://4x6al63a2o4m" path="res://scripts/views/game_view.gd" id="9_gqmmt"]
 [ext_resource type="StyleBox" uid="uid://d3qseubm28vrq" path="res://styles/overlay_style.tres" id="9_trceg"]
 [ext_resource type="PackedScene" uid="uid://sisapj6tq7i3" path="res://scenes/screens/title_screen.tscn" id="9_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://c1l5jn0w8l52o" path="res://scenes/screens/level_complete_screen.tscn" id="10_ya4ey"]
@@ -28,6 +30,12 @@ win_screen = NodePath("Screens/WinScreen")
 level_scenes = Array[PackedScene]([ExtResource("2_jkv2x"), ExtResource("3_jkv2x"), ExtResource("6_trceg"), ExtResource("5_jbj1t"), ExtResource("6_muem4"), ExtResource("4_jkv2x")])
 levels = NodePath("Levels")
 format_button = NodePath("Screens/Overlay/Control/FormatButton")
+
+[node name="GameController" type="Node2D" parent="." unique_id=1213744105]
+script = ExtResource("8_0ld40")
+
+[node name="GameView" type="Node2D" parent="." unique_id=431869875]
+script = ExtResource("9_gqmmt")
 
 [node name="Player" type="Node2D" parent="." unique_id=457860793 node_paths=PackedStringArray("main")]
 script = ExtResource("1_tbgi4")
