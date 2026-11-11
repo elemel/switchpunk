@@ -7,7 +7,7 @@ class_name LevelGenerator3
 @export var input_terminal_scene: PackedScene
 @export var output_terminal_scene: PackedScene
 @export var incrementer_scene: PackedScene
-@export var adder_scene: PackedScene
+@export var adder_view_scene: PackedScene
 
 var rng := RandomNumberGenerator.new()
 
@@ -45,9 +45,9 @@ func generate() -> void:
 	incrementer.position = operator_points[0]
 	level.modules.add_child(incrementer)
 
-	var adder := adder_scene.instantiate() as Adder
-	adder.position = operator_points[1]
-	level.modules.add_child(adder)
+	var adder_view := adder_view_scene.instantiate() as AdderView
+	adder_view.position = operator_points[1]
+	level.modules.add_child(adder_view)
 
 
 func generate_values(count: int) -> Array[int]:

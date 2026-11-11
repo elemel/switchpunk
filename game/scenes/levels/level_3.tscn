@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/chips/input_terminal.tscn" id="3_qpwj6"]
 [ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/chips/output_terminal.tscn" id="4_ibugp"]
 [ext_resource type="PackedScene" uid="uid://djtrdvyj6qm57" path="res://scenes/chips/incrementer.tscn" id="5_3p04p"]
-[ext_resource type="PackedScene" uid="uid://pem4rfwsjukl" path="res://scenes/chips/adder.tscn" id="6_qsp8v"]
+[ext_resource type="PackedScene" uid="uid://pem4rfwsjukl" path="res://scenes/chips/adder_view.tscn" id="6_qsp8v"]
 [ext_resource type="PackedScene" uid="uid://qefenx2baiga" path="res://scenes/board.tscn" id="7_fkk1g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]
@@ -24,7 +24,7 @@ main_area = NodePath("../Areas/MainArea")
 input_terminal_scene = ExtResource("3_qpwj6")
 output_terminal_scene = ExtResource("4_ibugp")
 incrementer_scene = ExtResource("5_3p04p")
-adder_scene = ExtResource("6_qsp8v")
+adder_view_scene = ExtResource("6_qsp8v")
 metadata/_custom_type_script = "uid://bxrn4j6sojwrx"
 
 [node name="Board" parent="." unique_id=1988669163 instance=ExtResource("7_fkk1g")]

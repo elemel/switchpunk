@@ -1,6 +1,6 @@
 @tool
 extends Chip
-class_name Adder
+class_name AdderView
 
 @export var port_a: InputPort
 @export var port_b: InputPort
