@@ -1,6 +1,6 @@
 @tool
 extends ChipView
-class_name Modulo
+class_name ModuloView
 
 @export var port_a: InputPort
 @export var port_b: InputPort
