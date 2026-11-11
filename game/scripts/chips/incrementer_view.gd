@@ -1,6 +1,6 @@
 @tool
 extends ChipView
-class_name Incrementer
+class_name IncrementerView
 
 @export var input_port: InputPort
 @export var output_port: OutputPort

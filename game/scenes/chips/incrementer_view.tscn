@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://djtrdvyj6qm57"]
 
-[ext_resource type="Script" uid="uid://bmnx1uiro0fe5" path="res://scripts/chips/incrementer.gd" id="1_i1y15"]
+[ext_resource type="Script" uid="uid://bmnx1uiro0fe5" path="res://scripts/chips/incrementer_view.gd" id="1_i1y15"]
 [ext_resource type="PackedScene" uid="uid://cnjbj6uejr56e" path="res://scenes/input_port.tscn" id="2_8m1fu"]
 [ext_resource type="PackedScene" uid="uid://byaeh6ahs4sw7" path="res://scenes/output_port.tscn" id="3_3a23u"]
 [ext_resource type="StyleBox" uid="uid://dwwmf10i0j7hk" path="res://styles/module_style.tres" id="4_3gdgh"]
@@ -10,7 +10,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23ros"]
 size = Vector2(200, 200)
 
-[node name="Incrementer" type="Node2D" unique_id=1389377459 node_paths=PackedStringArray("input_port", "output_port", "display")]
+[node name="IncrementerView" type="Node2D" unique_id=1389377459 node_paths=PackedStringArray("input_port", "output_port", "display")]
 script = ExtResource("1_i1y15")
 input_port = NodePath("InputPort")
 output_port = NodePath("OutputPort")
