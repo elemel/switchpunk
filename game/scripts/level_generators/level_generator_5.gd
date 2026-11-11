@@ -6,7 +6,7 @@ class_name LevelGenerator5
 
 @export var input_terminal_scene: PackedScene
 @export var output_terminal_scene: PackedScene
-@export var decrementer_scene: PackedScene
+@export var decrementer_view_scene: PackedScene
 @export var negator_scene: PackedScene
 
 var rng := RandomNumberGenerator.new()
@@ -45,9 +45,9 @@ func generate() -> void:
 	output_terminal_b.value = Math.dec_8(Math.neg_8(values[1]))
 	level.modules.add_child(output_terminal_b)
 
-	var decrementer := decrementer_scene.instantiate() as Decrementer
-	decrementer.position = operator_points[0]
-	level.modules.add_child(decrementer)
+	var decrementer_view := decrementer_view_scene.instantiate() as DecrementerView
+	decrementer_view.position = operator_points[0]
+	level.modules.add_child(decrementer_view)
 
 	var negator := negator_scene.instantiate() as Negator
 	negator.position = operator_points[1]

@@ -6,7 +6,7 @@ class_name LevelGenerator6
 
 @export var input_terminal_scene: PackedScene
 @export var output_terminal_scene: PackedScene
-@export var decrementer_scene: PackedScene
+@export var decrementer_view_scene: PackedScene
 @export var negator_scene: PackedScene
 @export var subtractor_scene: PackedScene
 
@@ -42,9 +42,9 @@ func generate() -> void:
 		output_terminal.value = Math.neg_8(values[0]) if i == 0 else Math.sub_8(values[1], Math.dec_8(values[2]))
 		level.modules.add_child(output_terminal)
 
-	var decrementer := decrementer_scene.instantiate() as Decrementer
-	decrementer.position = operator_points[0]
-	level.modules.add_child(decrementer)
+	var decrementer_view := decrementer_view_scene.instantiate() as DecrementerView
+	decrementer_view.position = operator_points[0]
+	level.modules.add_child(decrementer_view)
 
 	var negator := negator_scene.instantiate() as Negator
 	negator.position = operator_points[1]
