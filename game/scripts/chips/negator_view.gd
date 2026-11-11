@@ -1,6 +1,6 @@
 @tool
 extends ChipView
-class_name Negator
+class_name NegatorView
 
 @export var input_port: InputPort
 @export var output_port: OutputPort

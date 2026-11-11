@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/chips/input_terminal_view.tscn" id="3_fi56y"]
 [ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/chips/output_terminal.tscn" id="4_vvoq0"]
 [ext_resource type="PackedScene" uid="uid://cgud4gj6adbgp" path="res://scenes/chips/decrementer_view.tscn" id="5_tqnj0"]
-[ext_resource type="PackedScene" uid="uid://dlq1glodr6sw6" path="res://scenes/chips/negator.tscn" id="6_dwyms"]
+[ext_resource type="PackedScene" uid="uid://dlq1glodr6sw6" path="res://scenes/chips/negator_view.tscn" id="6_fsnos"]
 [ext_resource type="PackedScene" uid="uid://qefenx2baiga" path="res://scenes/board.tscn" id="7_fsnos"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]
@@ -24,7 +24,7 @@ main_area = NodePath("../Areas/MainArea")
 input_terminal_view_scene = ExtResource("3_fi56y")
 output_terminal_scene = ExtResource("4_vvoq0")
 decrementer_view_scene = ExtResource("5_tqnj0")
-negator_scene = ExtResource("6_dwyms")
+negator_view_scene = ExtResource("6_fsnos")
 metadata/_custom_type_script = "uid://drwhim7fe5sg3"
 
 [node name="Board" parent="." unique_id=1988669163 instance=ExtResource("7_fsnos")]
