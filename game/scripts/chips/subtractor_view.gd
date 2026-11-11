@@ -1,6 +1,6 @@
 @tool
 extends ChipView
-class_name Subtractor
+class_name SubtractorView
 
 @export var port_a: InputPort
 @export var port_b: InputPort

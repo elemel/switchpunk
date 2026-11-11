@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://41qoy364auiq"]
 
-[ext_resource type="Script" uid="uid://br40aorrf0qs7" path="res://scripts/chips/subtractor.gd" id="1_qagp8"]
+[ext_resource type="Script" uid="uid://br40aorrf0qs7" path="res://scripts/chips/subtractor_view.gd" id="1_qagp8"]
 [ext_resource type="PackedScene" uid="uid://cnjbj6uejr56e" path="res://scenes/input_port.tscn" id="2_1rmln"]
 [ext_resource type="PackedScene" uid="uid://byaeh6ahs4sw7" path="res://scenes/output_port.tscn" id="3_xw7bc"]
 [ext_resource type="StyleBox" uid="uid://dwwmf10i0j7hk" path="res://styles/module_style.tres" id="4_b7lj3"]
@@ -10,7 +10,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23ros"]
 size = Vector2(200, 200)
 
-[node name="Subtractor" type="Node2D" unique_id=319058681 node_paths=PackedStringArray("port_a", "port_b", "result_port", "display")]
+[node name="SubtractorView" type="Node2D" unique_id=319058681 node_paths=PackedStringArray("port_a", "port_b", "result_port", "display")]
 script = ExtResource("1_qagp8")
 port_a = NodePath("PortA")
 port_b = NodePath("PortB")

@@ -8,7 +8,7 @@ class_name LevelGenerator6
 @export var output_terminal_scene: PackedScene
 @export var decrementer_view_scene: PackedScene
 @export var negator_view_scene: PackedScene
-@export var subtractor_scene: PackedScene
+@export var subtractor_view_scene: PackedScene
 
 var rng := RandomNumberGenerator.new()
 
@@ -50,9 +50,9 @@ func generate() -> void:
 	negator_view.position = operator_points[1]
 	level.modules.add_child(negator_view)
 
-	var subtractor := subtractor_scene.instantiate() as Subtractor
-	subtractor.position = operator_points[2]
-	level.modules.add_child(subtractor)
+	var subtractor_view := subtractor_view_scene.instantiate() as SubtractorView
+	subtractor_view.position = operator_points[2]
+	level.modules.add_child(subtractor_view)
 
 
 func generate_values(count: int) -> Array[int]:
