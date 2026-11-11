@@ -12,6 +12,8 @@ signal format_changed
 @export var use_hex_format := false
 @export var format_button: Button
 @export var random_seed := 0
+@export var game_controller: GameController
+@export var game_view: GameView
 
 var is_web := OS.has_feature("web")
 var level_index := start_level_index
@@ -21,21 +23,6 @@ var level_seeds: Array[int]
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	update_format_button()
-
-
-func _unhandled_input(event: InputEvent) -> void:
-	var level := find_level()
-
-	if level == null or level.complete:
-		return
-
-	if event.is_action_pressed("pause"):
-		pause()
-		get_viewport().set_input_as_handled()
-
-	if event.is_action_pressed("ui_cancel") and not is_web:
-		pause()
-		get_viewport().set_input_as_handled()
 
 
 func _physics_process(_delta: float) -> void:

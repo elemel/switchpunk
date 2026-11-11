@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dewqulu7o362b" path="res://scenes/screens/new_game_screen.tscn" id="15_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://b4ulq4lqvh81k" path="res://scenes/screens/win_screen.tscn" id="16_jbj1t"]
 
-[node name="Main" type="Node2D" unique_id=1967515149 node_paths=PackedStringArray("pause_screen", "level_complete_screen", "win_screen", "levels", "format_button") groups=["mains"]]
+[node name="Main" type="Node2D" unique_id=1967515149 node_paths=PackedStringArray("pause_screen", "level_complete_screen", "win_screen", "levels", "format_button", "game_controller", "game_view") groups=["mains"]]
 process_mode = 3
 script = ExtResource("1_tefeu")
 pause_screen = NodePath("Screens/PauseScreen")
@@ -29,10 +29,16 @@ level_complete_screen = NodePath("Screens/LevelCompleteScreen")
 win_screen = NodePath("Screens/WinScreen")
 level_scenes = Array[PackedScene]([ExtResource("2_jkv2x"), ExtResource("3_jkv2x"), ExtResource("6_trceg"), ExtResource("5_jbj1t"), ExtResource("6_muem4"), ExtResource("4_jkv2x")])
 levels = NodePath("Levels")
+start_level_index = null
+use_hex_format = null
 format_button = NodePath("Screens/Overlay/Control/FormatButton")
+random_seed = null
+game_controller = NodePath("GameController")
+game_view = NodePath("GameView")
 
-[node name="GameController" type="Node2D" parent="." unique_id=1213744105]
+[node name="GameController" type="Node2D" parent="." unique_id=1213744105 node_paths=PackedStringArray("main")]
 script = ExtResource("8_0ld40")
+main = NodePath("..")
 
 [node name="GameView" type="Node2D" parent="." unique_id=431869875]
 script = ExtResource("9_gqmmt")
