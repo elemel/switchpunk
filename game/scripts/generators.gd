@@ -28,3 +28,9 @@ static func generate_points_in_area(rng: RandomNumberGenerator, area: Area2D, co
 			points.append(global_point)
 			
 	return points
+
+
+static func shuffle_array(rng: RandomNumberGenerator, array: Array) -> void:
+	for i in range(array.size() - 1, 0, -1):
+		var j = rng.randi_range(0, i)
+		Arrays.swap(array, i, j)

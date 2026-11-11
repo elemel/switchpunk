@@ -23,8 +23,8 @@ func generate() -> void:
 	points.sort_custom(func(a, b): return a.x < b.x)
 	var input_points := points.slice(0, 2)
 	var output_points := points.slice(2, 4)
-	Arrays.shuffle(input_points, rng)
-	Arrays.shuffle(output_points, rng)
+	Generators.shuffle_array(rng, input_points)
+	Generators.shuffle_array(rng, output_points)
 
 	var input_terminal_views: Array[InputTerminalView]
 	var output_terminal_views: Array[OutputTerminalView]

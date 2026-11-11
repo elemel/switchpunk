@@ -25,9 +25,9 @@ func generate() -> void:
 	var input_points := points.slice(0, 3)
 	var operator_points := points.slice(3, 5)
 	var output_points := points.slice(5, 7)
-	Arrays.shuffle(input_points, rng)
-	Arrays.shuffle(operator_points, rng)
-	Arrays.shuffle(output_points, rng)
+	Generators.shuffle_array(rng, input_points)
+	Generators.shuffle_array(rng, operator_points)
+	Generators.shuffle_array(rng, output_points)
 
 	for i in 3:
 		var input_terminal_view := input_terminal_view_scene.instantiate() as InputTerminalView
