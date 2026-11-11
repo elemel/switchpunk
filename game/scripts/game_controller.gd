@@ -2,7 +2,7 @@ extends Node2D
 class_name GameController
 
 @export var main: Main
-@export var wire_scene: PackedScene
+@export var wire_view_scene: PackedScene
 @export var output_port_scene: PackedScene
 @export var input_port_scene: PackedScene
 
@@ -93,14 +93,14 @@ func grab_output_port(port: OutputPort) -> void:
 	if level == null:
 		return
 
-	var new_wire := wire_scene.instantiate() as Wire
-	level.wires.add_child(new_wire)
-	new_wire.start_port = port
+	var new_wire_view := wire_view_scene.instantiate() as WireView
+	level.wires.add_child(new_wire_view)
+	new_wire_view.start_port = port
 
 	var end_port := input_port_scene.instantiate() as InputPort
 	end_port.global_position = port.global_position
-	new_wire.add_child(end_port)
-	new_wire.end_port = end_port
+	new_wire_view.add_child(end_port)
+	new_wire_view.end_port = end_port
 	dragged_node = end_port
 
 
@@ -124,14 +124,14 @@ func grab_input_port(port: InputPort) -> void:
 	if level == null:
 		return
 
-	var new_wire := wire_scene.instantiate() as Wire
-	level.wires.add_child(new_wire)
-	new_wire.end_port = port
+	var new_wire_view := wire_view_scene.instantiate() as WireView
+	level.wires.add_child(new_wire_view)
+	new_wire_view.end_port = port
 
 	var start_port := output_port_scene.instantiate() as OutputPort
 	start_port.global_position = port.global_position
-	new_wire.add_child(start_port)
-	new_wire.start_port = start_port
+	new_wire_view.add_child(start_port)
+	new_wire_view.start_port = start_port
 	dragged_node = start_port
 
 
@@ -147,7 +147,7 @@ func drop() -> void:
 
 
 func drop_output_port() -> void:
-	var wire := dragged_node.wire as Wire
+	var wire_view := dragged_node.wire as WireView
 	var mouse_position := get_global_mouse_position()
 	var area := find_area(mouse_position + drag_offset, dragged_node)
 
@@ -162,20 +162,20 @@ func drop_output_port() -> void:
 				else:
 					area_parent.wire.destroy()
 
-			area_parent.wire = wire
-			wire.start_port = area_parent
+			area_parent.wire = wire_view
+			wire_view.start_port = area_parent
 
-			wire.remove_child(dragged_node)
+			wire_view.remove_child(dragged_node)
 			dragged_node.queue_free()
 
-	if wire.start_port.chip == null:
-		wire.end_port = null
-		wire.get_parent().remove_child(wire)
-		wire.queue_free()
+	if wire_view.start_port.chip == null:
+		wire_view.end_port = null
+		wire_view.get_parent().remove_child(wire_view)
+		wire_view.queue_free()
 
 
 func drop_input_port() -> void:
-	var wire := dragged_node.wire as Wire
+	var wire_view := dragged_node.wire as WireView
 	var mouse_position := get_global_mouse_position()
 	var area := find_area(mouse_position + drag_offset, dragged_node)
 
@@ -190,16 +190,16 @@ func drop_input_port() -> void:
 				else:
 					area_parent.wire.destroy()
 
-			area_parent.wire = wire
-			wire.end_port = area_parent
+			area_parent.wire = wire_view
+			wire_view.end_port = area_parent
 
-			wire.remove_child(dragged_node)
+			wire_view.remove_child(dragged_node)
 			dragged_node.queue_free()
 
-	if wire.end_port.chip == null:
-		wire.start_port = null
-		wire.get_parent().remove_child(wire)
-		wire.queue_free()
+	if wire_view.end_port.chip == null:
+		wire_view.start_port = null
+		wire_view.get_parent().remove_child(wire_view)
+		wire_view.queue_free()
 
 
 func find_area(area_position: Vector2, exclude_parent: Node2D = null) -> Area2D:

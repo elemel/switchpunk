@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://byaeh6ahs4sw7" path="res://scenes/output_port.tscn" id="3_tipki"]
 [ext_resource type="PackedScene" uid="uid://cnjbj6uejr56e" path="res://scenes/input_port.tscn" id="4_85g3d"]
 [ext_resource type="PackedScene" uid="uid://daahylqog1jun" path="res://scenes/levels/level_6.tscn" id="4_jkv2x"]
-[ext_resource type="PackedScene" uid="uid://r2y041fo0bby" path="res://scenes/wire.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://r2y041fo0bby" path="res://scenes/views/wire_view.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://b4xrek36cq7ev" path="res://scenes/levels/level_4.tscn" id="5_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://t4u73vmw4223" path="res://scenes/levels/level_5.tscn" id="6_muem4"]
 [ext_resource type="PackedScene" uid="uid://07v41kwtj1gy" path="res://scenes/levels/level_3.tscn" id="6_trceg"]
@@ -41,7 +41,7 @@ process_callback = 0
 [node name="GameController" type="Node2D" parent="." unique_id=1213744105 node_paths=PackedStringArray("main")]
 script = ExtResource("8_0ld40")
 main = NodePath("..")
-wire_scene = ExtResource("4_jyhfs")
+wire_view_scene = ExtResource("4_jyhfs")
 output_port_scene = ExtResource("3_tipki")
 input_port_scene = ExtResource("4_85g3d")
 

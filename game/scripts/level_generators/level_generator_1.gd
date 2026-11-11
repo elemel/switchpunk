@@ -6,7 +6,7 @@ class_name LevelGenerator1
 
 @export var input_terminal_view_scene: PackedScene
 @export var output_terminal_view_scene: PackedScene
-@export var wire_scene: PackedScene
+@export var wire_view_scene: PackedScene
 
 var rng := RandomNumberGenerator.new()
 
@@ -43,10 +43,10 @@ func generate() -> void:
 		level.modules.add_child(output_terminal_view)
 		output_terminal_views.append(output_terminal_view)
 
-	var wire := wire_scene.instantiate() as Wire
-	level.wires.add_child(wire)
-	wire.start_port = input_terminal_views[0].port
-	wire.end_port = output_terminal_views[0].port
+	var wire_view := wire_view_scene.instantiate() as WireView
+	level.wires.add_child(wire_view)
+	wire_view.start_port = input_terminal_views[0].port
+	wire_view.end_port = output_terminal_views[0].port
 
 
 func generate_values(count: int) -> Array[int]:

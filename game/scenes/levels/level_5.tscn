@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dmsna1rt3wpv4" path="res://scripts/level.gd" id="1_mxx4w"]
 [ext_resource type="Script" uid="uid://drwhim7fe5sg3" path="res://scripts/level_generators/level_generator_5.gd" id="2_laj7o"]
-[ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/chips/input_terminal_view.tscn" id="3_fi56y"]
-[ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/chips/output_terminal_view.tscn" id="4_vvoq0"]
-[ext_resource type="PackedScene" uid="uid://cgud4gj6adbgp" path="res://scenes/chips/decrementer_view.tscn" id="5_tqnj0"]
-[ext_resource type="PackedScene" uid="uid://dlq1glodr6sw6" path="res://scenes/chips/negator_view.tscn" id="6_fsnos"]
+[ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/views/chips/input_terminal_view.tscn" id="3_fi56y"]
+[ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/views/chips/output_terminal_view.tscn" id="4_vvoq0"]
+[ext_resource type="PackedScene" uid="uid://cgud4gj6adbgp" path="res://scenes/views/chips/decrementer_view.tscn" id="5_tqnj0"]
+[ext_resource type="PackedScene" uid="uid://dlq1glodr6sw6" path="res://scenes/views/chips/negator_view.tscn" id="6_fsnos"]
 [ext_resource type="PackedScene" uid="uid://qefenx2baiga" path="res://scenes/board.tscn" id="7_fsnos"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]

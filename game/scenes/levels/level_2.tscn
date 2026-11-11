@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dmsna1rt3wpv4" path="res://scripts/level.gd" id="1_l37oo"]
 [ext_resource type="Script" uid="uid://dvajgjds1n4dk" path="res://scripts/level_generators/level_generator_2.gd" id="2_ra442"]
-[ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/chips/input_terminal_view.tscn" id="3_ibugp"]
-[ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/chips/output_terminal_view.tscn" id="4_8qukl"]
-[ext_resource type="PackedScene" uid="uid://djtrdvyj6qm57" path="res://scenes/chips/incrementer_view.tscn" id="5_3p04p"]
-[ext_resource type="PackedScene" uid="uid://r2y041fo0bby" path="res://scenes/wire.tscn" id="6_qsp8v"]
+[ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/views/chips/input_terminal_view.tscn" id="3_ibugp"]
+[ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/views/chips/output_terminal_view.tscn" id="4_8qukl"]
+[ext_resource type="PackedScene" uid="uid://djtrdvyj6qm57" path="res://scenes/views/chips/incrementer_view.tscn" id="5_3p04p"]
+[ext_resource type="PackedScene" uid="uid://r2y041fo0bby" path="res://scenes/views/wire_view.tscn" id="6_qsp8v"]
 [ext_resource type="PackedScene" uid="uid://qefenx2baiga" path="res://scenes/board.tscn" id="7_ibugp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]
@@ -24,7 +24,7 @@ main_area = NodePath("../Areas/MainArea")
 input_terminal_view_scene = ExtResource("3_ibugp")
 output_terminal_view_scene = ExtResource("4_8qukl")
 incrementer_view_scene = ExtResource("5_3p04p")
-wire_scene = ExtResource("6_qsp8v")
+wire_view_scene = ExtResource("6_qsp8v")
 metadata/_custom_type_script = "uid://dvajgjds1n4dk"
 
 [node name="Board" parent="." unique_id=1988669163 instance=ExtResource("7_ibugp")]

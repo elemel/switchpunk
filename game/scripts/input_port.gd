@@ -5,4 +5,4 @@ class_name InputPort
 @export var chip: ChipView
 
 var value := 0
-var wire: Wire
+var wire: WireView

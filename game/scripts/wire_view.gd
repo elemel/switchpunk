@@ -1,6 +1,6 @@
 @tool
 extends Node2D
-class_name Wire
+class_name WireView
 
 @export var start_port: OutputPort:
 	set(new_start_port):
