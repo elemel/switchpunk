@@ -1,5 +1,5 @@
 @tool
-extends Chip
+extends ChipView
 class_name InputTerminal
 
 @export var display: Display

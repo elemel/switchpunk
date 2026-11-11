@@ -1,5 +1,5 @@
 @tool
-extends Chip
+extends ChipView
 class_name Subtractor
 
 @export var port_a: InputPort

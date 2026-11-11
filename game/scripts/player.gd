@@ -36,7 +36,7 @@ func grab() -> void:
 	if area != null:
 		var area_parent := area.get_parent() as Node2D
 
-		if area_parent is Chip:
+		if area_parent is ChipView:
 			dragged_node = area_parent
 		elif area_parent is OutputPort:
 			grab_output_port(area_parent)
@@ -213,7 +213,7 @@ func get_area_score(area: Area2D) -> int:
 	if area_parent is InputPort or area_parent is OutputPort:
 		return 2
 
-	if area_parent is Chip:
+	if area_parent is ChipView:
 		return 1
 
 	return 0

@@ -1,5 +1,5 @@
 @tool
-extends Chip
+extends ChipView
 class_name Decrementer
 
 @export var input_port: InputPort

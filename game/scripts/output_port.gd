@@ -2,7 +2,7 @@
 extends Node2D
 class_name OutputPort
 
-@export var chip: Chip
+@export var chip: ChipView
 
 var value := 0
 var wire: Wire

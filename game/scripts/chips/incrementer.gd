@@ -1,5 +1,5 @@
 @tool
-extends Chip
+extends ChipView
 class_name Incrementer
 
 @export var input_port: InputPort
