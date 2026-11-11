@@ -55,8 +55,8 @@ func is_level_complete() -> bool:
 	if find_level() == null:
 		return false
 
-	for output_terminal: OutputTerminal in get_tree().get_nodes_in_group("output_terminals"):
-		if not output_terminal.is_complete():
+	for output_terminal_view: OutputTerminalView in get_tree().get_nodes_in_group("output_terminal_views"):
+		if not output_terminal_view.is_complete():
 			return false
 
 	return true

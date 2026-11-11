@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bixn43x131ona"]
 
-[ext_resource type="Script" uid="uid://c4eydcgkcbdt2" path="res://scripts/chips/output_terminal.gd" id="1_q5b3w"]
+[ext_resource type="Script" uid="uid://c4eydcgkcbdt2" path="res://scripts/chips/output_terminal_view.gd" id="1_q5b3w"]
 [ext_resource type="PackedScene" uid="uid://cnjbj6uejr56e" path="res://scenes/input_port.tscn" id="2_ngcxr"]
 [ext_resource type="StyleBox" uid="uid://dwwmf10i0j7hk" path="res://styles/module_style.tres" id="3_sd6ol"]
 [ext_resource type="PackedScene" uid="uid://bjgijke0qlm5j" path="res://scenes/display.tscn" id="4_37uy2"]
@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23ros"]
 size = Vector2(300, 100)
 
-[node name="OutputTerminal" type="Node2D" unique_id=319058681 node_paths=PackedStringArray("port", "lamp", "display") groups=["output_terminals"]]
+[node name="OutputTerminalView" type="Node2D" unique_id=319058681 node_paths=PackedStringArray("port", "lamp", "display") groups=["output_terminal_views"]]
 script = ExtResource("1_q5b3w")
 port = NodePath("Port")
 lamp = NodePath("Lamp")

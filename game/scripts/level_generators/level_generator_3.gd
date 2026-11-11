@@ -5,7 +5,7 @@ class_name LevelGenerator3
 @export var main_area: Area2D
 
 @export var input_terminal_view_scene: PackedScene
-@export var output_terminal_scene: PackedScene
+@export var output_terminal_view_scene: PackedScene
 @export var incrementer_view_scene: PackedScene
 @export var adder_view_scene: PackedScene
 
@@ -36,10 +36,10 @@ func generate() -> void:
 		level.modules.add_child(input_terminal_view)
 
 	for i in 2:
-		var output_terminal := output_terminal_scene.instantiate() as OutputTerminal
-		output_terminal.position = output_points[i]
-		output_terminal.value = Math.inc_8(values[0]) if i == 0 else Math.add_8(values[1], values[2])
-		level.modules.add_child(output_terminal)
+		var output_terminal_view := output_terminal_view_scene.instantiate() as OutputTerminalView
+		output_terminal_view.position = output_points[i]
+		output_terminal_view.value = Math.inc_8(values[0]) if i == 0 else Math.add_8(values[1], values[2])
+		level.modules.add_child(output_terminal_view)
 
 	var incrementer_view := incrementer_view_scene.instantiate() as IncrementerView
 	incrementer_view.position = operator_points[0]

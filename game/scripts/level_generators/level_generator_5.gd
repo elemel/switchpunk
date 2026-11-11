@@ -5,7 +5,7 @@ class_name LevelGenerator5
 @export var main_area: Area2D
 
 @export var input_terminal_view_scene: PackedScene
-@export var output_terminal_scene: PackedScene
+@export var output_terminal_view_scene: PackedScene
 @export var decrementer_view_scene: PackedScene
 @export var negator_view_scene: PackedScene
 
@@ -35,15 +35,15 @@ func generate() -> void:
 		input_terminal_view.value = values[i]
 		level.modules.add_child(input_terminal_view)
 
-	var output_terminal_a := output_terminal_scene.instantiate() as OutputTerminal
-	output_terminal_a.position = output_points[0]
-	output_terminal_a.value = values[0]
-	level.modules.add_child(output_terminal_a)
+	var output_terminal_view_a := output_terminal_view_scene.instantiate() as OutputTerminalView
+	output_terminal_view_a.position = output_points[0]
+	output_terminal_view_a.value = values[0]
+	level.modules.add_child(output_terminal_view_a)
 
-	var output_terminal_b := output_terminal_scene.instantiate() as OutputTerminal
-	output_terminal_b.position = output_points[1]
-	output_terminal_b.value = Math.dec_8(Math.neg_8(values[1]))
-	level.modules.add_child(output_terminal_b)
+	var output_terminal_view_b := output_terminal_view_scene.instantiate() as OutputTerminalView
+	output_terminal_view_b.position = output_points[1]
+	output_terminal_view_b.value = Math.dec_8(Math.neg_8(values[1]))
+	level.modules.add_child(output_terminal_view_b)
 
 	var decrementer_view := decrementer_view_scene.instantiate() as DecrementerView
 	decrementer_view.position = operator_points[0]
