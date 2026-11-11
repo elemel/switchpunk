@@ -4,7 +4,7 @@ class_name LevelGenerator4
 @export var level: Level
 @export var main_area: Area2D
 
-@export var input_terminal_scene: PackedScene
+@export var input_terminal_view_scene: PackedScene
 @export var output_terminal_scene: PackedScene
 @export var decrementer_view_scene: PackedScene
 
@@ -28,10 +28,10 @@ func generate() -> void:
 	Arrays.shuffle(output_points, rng)
 
 	for i in 2:
-		var input_terminal := input_terminal_scene.instantiate() as InputTerminal
-		input_terminal.position = input_points[i]
-		input_terminal.value = values[i]
-		level.modules.add_child(input_terminal)
+		var input_terminal_view := input_terminal_view_scene.instantiate() as InputTerminalView
+		input_terminal_view.position = input_points[i]
+		input_terminal_view.value = values[i]
+		level.modules.add_child(input_terminal_view)
 
 	for i in 2:
 		var output_terminal := output_terminal_scene.instantiate() as OutputTerminal

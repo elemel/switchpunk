@@ -4,7 +4,7 @@ class_name LevelGenerator2
 @export var level: Level
 @export var main_area: Area2D
 
-@export var input_terminal_scene: PackedScene
+@export var input_terminal_view_scene: PackedScene
 @export var output_terminal_scene: PackedScene
 @export var incrementer_view_scene: PackedScene
 @export var wire_scene: PackedScene
@@ -26,10 +26,10 @@ func generate() -> void:
 	var incrementer_point := points[1]
 	var output_point := points[2]
 
-	var input_terminal := input_terminal_scene.instantiate() as InputTerminal
-	input_terminal.position = input_point
-	input_terminal.value = value
-	level.modules.add_child(input_terminal)
+	var input_terminal_view := input_terminal_view_scene.instantiate() as InputTerminalView
+	input_terminal_view.position = input_point
+	input_terminal_view.value = value
+	level.modules.add_child(input_terminal_view)
 
 	var output_terminal := output_terminal_scene.instantiate() as OutputTerminal
 	output_terminal.position = output_point
@@ -42,7 +42,7 @@ func generate() -> void:
 
 	var wire := wire_scene.instantiate() as Wire
 	level.wires.add_child(wire)
-	wire.start_port = input_terminal.port
+	wire.start_port = input_terminal_view.port
 	wire.end_port = output_terminal.port
 
 

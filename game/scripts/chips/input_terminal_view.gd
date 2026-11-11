@@ -1,6 +1,6 @@
 @tool
 extends ChipView
-class_name InputTerminal
+class_name InputTerminalView
 
 @export var display: Display
 @export var port: OutputPort

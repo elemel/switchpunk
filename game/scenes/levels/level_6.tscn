@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dmsna1rt3wpv4" path="res://scripts/level.gd" id="1_l37oo"]
 [ext_resource type="Script" uid="uid://c8oipl3q17kbk" path="res://scripts/level_generators/level_generator_6.gd" id="2_b6i88"]
-[ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/chips/input_terminal.tscn" id="4_8qukl"]
+[ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/chips/input_terminal_view.tscn" id="4_8qukl"]
 [ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/chips/output_terminal.tscn" id="5_3p04p"]
+[ext_resource type="PackedScene" uid="uid://cgud4gj6adbgp" path="res://scenes/chips/decrementer_view.tscn" id="5_b6i88"]
 [ext_resource type="PackedScene" uid="uid://dlq1glodr6sw6" path="res://scenes/chips/negator.tscn" id="6_pimnq"]
 [ext_resource type="PackedScene" uid="uid://41qoy364auiq" path="res://scenes/chips/subtractor.tscn" id="7_2bnyt"]
 [ext_resource type="PackedScene" uid="uid://qefenx2baiga" path="res://scenes/board.tscn" id="8_b6i88"]
@@ -21,8 +22,9 @@ level_generator = NodePath("LevelGenerator6")
 script = ExtResource("2_b6i88")
 level = NodePath("..")
 main_area = NodePath("../Areas/MainArea")
-input_terminal_scene = ExtResource("4_8qukl")
+input_terminal_view_scene = ExtResource("4_8qukl")
 output_terminal_scene = ExtResource("5_3p04p")
+decrementer_view_scene = ExtResource("5_b6i88")
 negator_scene = ExtResource("6_pimnq")
 subtractor_scene = ExtResource("7_2bnyt")
 metadata/_custom_type_script = "uid://c8oipl3q17kbk"
