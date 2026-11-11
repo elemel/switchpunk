@@ -2,6 +2,15 @@ extends Node2D
 class_name GameController
 
 @export var main: Main
+@export var wire_scene: PackedScene
+@export var output_port_scene: PackedScene
+@export var input_port_scene: PackedScene
+
+var dragged_node: Node2D
+var drag_offset := Vector2.ZERO
+var old_input_port: InputPort
+var old_output_port: OutputPort
+var drag_offset_tween: Tween
 
 var is_web := OS.has_feature("web")
 
@@ -19,3 +28,213 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and not is_web:
 		main.pause()
 		get_viewport().set_input_as_handled()
+
+
+func _physics_process(_delta: float) -> void:
+	var level := main.find_level()
+
+	if level == null or level.complete:
+		return
+
+	if Input.is_action_just_pressed("grab"):
+		grab()
+
+	if dragged_node != null:
+		dragged_node.global_position = drag_offset + get_global_mouse_position()
+
+		if not Input.is_action_pressed("grab"):
+			drop()
+
+
+func grab() -> void:
+	var mouse_position := get_global_mouse_position()
+	var area := find_area(mouse_position)
+
+	if area != null:
+		var area_parent := area.get_parent() as Node2D
+
+		if area_parent is ChipView:
+			dragged_node = area_parent
+		elif area_parent is OutputPort:
+			grab_output_port(area_parent)
+		elif area_parent is InputPort:
+			grab_input_port(area_parent)
+
+		if dragged_node != null:
+			drag_offset = dragged_node.global_position - get_global_mouse_position()
+
+			if drag_offset_tween != null:
+				drag_offset_tween.kill()
+				drag_offset_tween = null
+
+			if dragged_node is InputPort or dragged_node is OutputPort:
+				drag_offset_tween = create_tween()
+				drag_offset_tween.tween_property(self, "drag_offset", Vector2.ZERO, 0.1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+
+
+func grab_output_port(port: OutputPort) -> void:
+	if port.chip == null:
+		dragged_node = port
+		return
+
+	if port.wire != null:
+		old_output_port = port
+		var port_position := port.global_position
+		var wire := port.wire
+		wire.start_port = output_port_scene.instantiate() as OutputPort
+		wire.start_port.chip = null
+		wire.start_port.global_position = port_position
+		wire.add_child(wire.start_port)
+		dragged_node = wire.start_port
+		return
+
+	var level := find_level()
+
+	if level == null:
+		return
+
+	var new_wire := wire_scene.instantiate() as Wire
+	level.wires.add_child(new_wire)
+	new_wire.start_port = port
+
+	var end_port := input_port_scene.instantiate() as InputPort
+	end_port.global_position = port.global_position
+	new_wire.add_child(end_port)
+	new_wire.end_port = end_port
+	dragged_node = end_port
+
+
+func grab_input_port(port: InputPort) -> void:
+	if port.chip == null:
+		dragged_node = port
+		return
+
+	if port.wire != null:
+		old_input_port = port
+		var port_position := port.global_position
+		var wire := port.wire
+		wire.end_port = input_port_scene.instantiate() as InputPort
+		wire.end_port.global_position = port_position
+		wire.add_child(wire.end_port)
+		dragged_node = wire.end_port
+		return
+
+	var level := find_level()
+
+	if level == null:
+		return
+
+	var new_wire := wire_scene.instantiate() as Wire
+	level.wires.add_child(new_wire)
+	new_wire.end_port = port
+
+	var start_port := output_port_scene.instantiate() as OutputPort
+	start_port.global_position = port.global_position
+	new_wire.add_child(start_port)
+	new_wire.start_port = start_port
+	dragged_node = start_port
+
+
+func drop() -> void:
+	if dragged_node is OutputPort:
+		drop_output_port()
+	elif dragged_node is InputPort:
+		drop_input_port()
+
+	dragged_node = null
+	old_input_port = null
+	old_output_port = null
+
+
+func drop_output_port() -> void:
+	var wire := dragged_node.wire as Wire
+	var mouse_position := get_global_mouse_position()
+	var area := find_area(mouse_position + drag_offset, dragged_node)
+
+	if area != null:
+		var area_parent := area.get_parent() as Node2D
+
+		if area_parent is OutputPort:
+			if area_parent.wire != null:
+				if old_output_port != null:
+					area_parent.wire.start_port = old_output_port
+					old_output_port = null
+				else:
+					area_parent.wire.destroy()
+
+			area_parent.wire = wire
+			wire.start_port = area_parent
+
+			wire.remove_child(dragged_node)
+			dragged_node.queue_free()
+
+	if wire.start_port.chip == null:
+		wire.end_port = null
+		wire.get_parent().remove_child(wire)
+		wire.queue_free()
+
+
+func drop_input_port() -> void:
+	var wire := dragged_node.wire as Wire
+	var mouse_position := get_global_mouse_position()
+	var area := find_area(mouse_position + drag_offset, dragged_node)
+
+	if area != null:
+		var area_parent := area.get_parent() as Node2D
+
+		if area_parent is InputPort:
+			if area_parent.wire != null:
+				if old_input_port != null:
+					area_parent.wire.end_port = old_input_port
+					old_input_port = null
+				else:
+					area_parent.wire.destroy()
+
+			area_parent.wire = wire
+			wire.end_port = area_parent
+
+			wire.remove_child(dragged_node)
+			dragged_node.queue_free()
+
+	if wire.end_port.chip == null:
+		wire.start_port = null
+		wire.get_parent().remove_child(wire)
+		wire.queue_free()
+
+
+func find_area(area_position: Vector2, exclude_parent: Node2D = null) -> Area2D:
+	var space_state := get_world_2d().direct_space_state
+	var query := PhysicsPointQueryParameters2D.new()
+	query.position = area_position
+	query.collide_with_areas = true
+	query.collide_with_bodies = false
+	var results := space_state.intersect_point(query)
+	var best_result: Area2D
+	var best_score := 0
+
+	for result in results:
+		if result.collider.get_parent() != exclude_parent:
+			var area := result.collider as Area2D
+			var score := get_area_score(area)
+
+			if score > best_score:
+				best_result = area
+				best_score = score
+
+	return best_result
+
+
+func get_area_score(area: Area2D) -> int:
+	var area_parent := area.get_parent() as Node2D
+
+	if area_parent is InputPort or area_parent is OutputPort:
+		return 2
+
+	if area_parent is ChipView:
+		return 1
+
+	return 0
+
+
+func find_level() -> Level:
+	return get_tree().get_first_node_in_group("levels")

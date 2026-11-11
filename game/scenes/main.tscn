@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://dc1k8c1u03wl2"]
 
-[ext_resource type="Script" uid="uid://dvjnp03qo10wv" path="res://scripts/player.gd" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://b5om17iyx8ye0" path="res://scripts/main.gd" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://cw2cirah7xdc0" path="res://scenes/levels/level_1.tscn" id="2_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://lva8qsd7te6i" path="res://scenes/levels/level_2.tscn" id="3_jkv2x"]
@@ -36,22 +35,18 @@ random_seed = null
 game_controller = NodePath("GameController")
 game_view = NodePath("GameView")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1335329146]
+process_callback = 0
+
 [node name="GameController" type="Node2D" parent="." unique_id=1213744105 node_paths=PackedStringArray("main")]
 script = ExtResource("8_0ld40")
-main = NodePath("..")
-
-[node name="GameView" type="Node2D" parent="." unique_id=431869875]
-script = ExtResource("9_gqmmt")
-
-[node name="Player" type="Node2D" parent="." unique_id=457860793 node_paths=PackedStringArray("main")]
-script = ExtResource("1_tbgi4")
 main = NodePath("..")
 wire_scene = ExtResource("4_jyhfs")
 output_port_scene = ExtResource("3_tipki")
 input_port_scene = ExtResource("4_85g3d")
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1335329146]
-process_callback = 0
+[node name="GameView" type="Node2D" parent="." unique_id=431869875]
+script = ExtResource("9_gqmmt")
 
 [node name="Levels" type="Node2D" parent="." unique_id=1347675565]
 
