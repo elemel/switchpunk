@@ -1,5 +1,9 @@
 class_name Math
 
+# Arithmetic: INC, ADD, DEC, NEG, SUB, MUL, DIV, MOD, INV
+# Bitwise: AND, OR, XOR, NOT, ROT, SWP, REV
+# Other: DUP
+
 
 static func neg_8(value: int) -> int:
 	return to_signed_8(-value)

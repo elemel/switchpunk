@@ -17,8 +17,23 @@
 [ext_resource type="StyleBox" uid="uid://d3qseubm28vrq" path="res://styles/overlay_style.tres" id="9_trceg"]
 [ext_resource type="PackedScene" uid="uid://sisapj6tq7i3" path="res://scenes/screens/title_screen.tscn" id="9_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://c1l5jn0w8l52o" path="res://scenes/screens/level_complete_screen.tscn" id="10_ya4ey"]
+[ext_resource type="Script" uid="uid://cfrtwt0bqby3m" path="res://scripts/views/board_view.gd" id="13_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://dewqulu7o362b" path="res://scenes/screens/new_game_screen.tscn" id="15_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://b4ulq4lqvh81k" path="res://scenes/screens/win_screen.tscn" id="16_jbj1t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yc10j"]
+bg_color = Color(0.0324, 0.13140002, 0.27, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqmmt"]
+bg_color = Color(0.049200002, 0.19953336, 0.41, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [node name="Main" type="Node2D" unique_id=1967515149 node_paths=PackedStringArray("pause_screen", "level_complete_screen", "win_screen", "levels", "format_button", "game_controller", "game_view") groups=["mains"]]
 process_mode = 3
@@ -47,6 +62,37 @@ input_port_scene = ExtResource("4_85g3d")
 
 [node name="GameView" type="Node2D" parent="." unique_id=431869875]
 script = ExtResource("9_gqmmt")
+
+[node name="Panel" type="Panel" parent="GameView" unique_id=2124803035]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1250.0
+offset_top = -725.0
+offset_right = 1250.0
+offset_bottom = 725.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yc10j")
+
+[node name="BoardView" type="Node2D" parent="GameView" unique_id=816167487]
+script = ExtResource("13_gqmmt")
+
+[node name="Panel" type="Panel" parent="GameView/BoardView" unique_id=1794568320]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1150.0
+offset_top = -625.0
+offset_right = 1150.0
+offset_bottom = 475.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gqmmt")
 
 [node name="Levels" type="Node2D" parent="." unique_id=1347675565]
 

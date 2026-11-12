@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://crmbchdgwtooa" path="res://scenes/views/chips/input_terminal_view.tscn" id="3_glw47"]
 [ext_resource type="PackedScene" uid="uid://bixn43x131ona" path="res://scenes/views/chips/output_terminal_view.tscn" id="4_4wsov"]
 [ext_resource type="PackedScene" uid="uid://cgud4gj6adbgp" path="res://scenes/views/chips/decrementer_view.tscn" id="5_5vn0v"]
-[ext_resource type="PackedScene" uid="uid://qefenx2baiga" path="res://scenes/views/board_view.tscn" id="6_rej77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]
 size = Vector2(1900, 1000)
@@ -24,8 +23,6 @@ input_terminal_view_scene = ExtResource("3_glw47")
 output_terminal_view_scene = ExtResource("4_4wsov")
 decrementer_view_scene = ExtResource("5_5vn0v")
 metadata/_custom_type_script = "uid://bdbegq20j1wk2"
-
-[node name="BoardView" parent="." unique_id=1988669163 instance=ExtResource("6_rej77")]
 
 [node name="Wires" type="Node2D" parent="." unique_id=1347272993]
 
