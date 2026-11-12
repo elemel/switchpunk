@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cgud4gj6adbgp" path="res://scenes/views/chips/decrementer_view.tscn" id="5_b6i88"]
 [ext_resource type="PackedScene" uid="uid://dlq1glodr6sw6" path="res://scenes/views/chips/negator_view.tscn" id="6_b6i88"]
 [ext_resource type="PackedScene" uid="uid://41qoy364auiq" path="res://scenes/views/chips/subtractor_view.tscn" id="7_2bnyt"]
-[ext_resource type="PackedScene" uid="uid://qefenx2baiga" path="res://scenes/board.tscn" id="8_b6i88"]
+[ext_resource type="PackedScene" uid="uid://qefenx2baiga" path="res://scenes/views/board_view.tscn" id="8_b6i88"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ljxa"]
 size = Vector2(1900, 1000)
@@ -29,7 +29,7 @@ negator_view_scene = ExtResource("6_b6i88")
 subtractor_view_scene = ExtResource("7_2bnyt")
 metadata/_custom_type_script = "uid://c8oipl3q17kbk"
 
-[node name="Board" parent="." unique_id=1988669163 instance=ExtResource("8_b6i88")]
+[node name="BoardView" parent="." unique_id=1988669163 instance=ExtResource("8_b6i88")]
 
 [node name="Wires" type="Node2D" parent="." unique_id=1347272993]
 
