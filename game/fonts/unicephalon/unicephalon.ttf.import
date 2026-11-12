@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bfn7wybtdgu4j"
-path="res://.godot/imported/Inconsolata-Bold.ttf-686a40f036d5dbcdd866e2ac9e760502.fontdata"
+uid="uid://b4tv4h1bl4wjy"
+path="res://.godot/imported/unicephalon.ttf-273ec0f86884aa874c29ec21ab3a39a3.fontdata"
 
 [deps]
 
-source_file="res://fonts/Inconsolata/Inconsolata-Bold.ttf"
-dest_files=["res://.godot/imported/Inconsolata-Bold.ttf-686a40f036d5dbcdd866e2ac9e760502.fontdata"]
+source_file="res://fonts/unicephalon/unicephalon.ttf"
+dest_files=["res://.godot/imported/unicephalon.ttf-273ec0f86884aa874c29ec21ab3a39a3.fontdata"]
 
 [params]
 

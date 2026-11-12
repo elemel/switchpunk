@@ -41,7 +41,6 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_ya4ey")
 [node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=342130328]
 layout_mode = 2
 theme = ExtResource("2_r6gad")
-theme_override_font_sizes/font_size = 200
 text = "New Game"
 horizontal_alignment = 1
 

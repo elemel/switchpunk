@@ -11,10 +11,8 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ya4ey"]
 bg_color = Color(0, 0, 0, 1)
 
-[node name="PauseScreen" type="CanvasLayer" unique_id=1946852061 node_paths=PackedStringArray("main", "title_screen", "resume_button", "quit_button")]
+[node name="PauseScreen" type="CanvasLayer" unique_id=1946852061 node_paths=PackedStringArray("resume_button", "quit_button")]
 script = ExtResource("1_u5b06")
-main = NodePath("")
-title_screen = NodePath("")
 resume_button = NodePath("VBoxContainer/ResumeButton")
 quit_button = NodePath("VBoxContainer/QuitGameButton")
 
@@ -42,7 +40,6 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_ya4ey")
 [node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=1166390193]
 layout_mode = 2
 theme = ExtResource("2_bqfm8")
-theme_override_font_sizes/font_size = 200
 text = "Paused"
 horizontal_alignment = 1
 

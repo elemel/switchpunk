@@ -40,7 +40,6 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_ya4ey")
 [node name="TitleLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=308719663]
 layout_mode = 2
 theme = ExtResource("2_5w3vv")
-theme_override_font_sizes/font_size = 200
 text = "You Win!"
 horizontal_alignment = 1
 

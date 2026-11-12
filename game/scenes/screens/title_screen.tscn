@@ -12,7 +12,6 @@
 bg_color = Color(0, 0, 0, 1)
 
 [node name="TitleScreen" type="CanvasLayer" unique_id=1268018315 node_paths=PackedStringArray("start_button", "exit_button")]
-visible = false
 script = ExtResource("1_2neum")
 start_button = NodePath("VBoxContainer/NewGameButton")
 exit_button = NodePath("VBoxContainer/ExitButton")
@@ -41,7 +40,6 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_ya4ey")
 [node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=342130328]
 layout_mode = 2
 theme = ExtResource("2_0virr")
-theme_override_font_sizes/font_size = 200
 text = "Switchpunk"
 horizontal_alignment = 1
 

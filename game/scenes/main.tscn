@@ -111,8 +111,8 @@ grow_vertical = 2
 [node name="PauseButton" type="Button" parent="Screens/Overlay/Control" unique_id=1074252981]
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 1
-offset_right = 8.0
-offset_bottom = 8.0
+offset_right = 400.0
+offset_bottom = 100.0
 theme = ExtResource("9_a8y0u")
 theme_override_colors/font_color = Color(0.2997, 0.63139504, 0.81, 1)
 theme_override_colors/font_focus_color = Color(0.2997, 0.63139504, 0.81, 1)
@@ -134,6 +134,7 @@ theme_override_styles/hover_pressed = ExtResource("9_trceg")
 theme_override_styles/disabled = ExtResource("9_trceg")
 theme_override_styles/focus = ExtResource("9_trceg")
 text = "Pause"
+alignment = 0
 
 [node name="FormatButton" type="Button" parent="Screens/Overlay/Control" unique_id=686224655]
 custom_minimum_size = Vector2(200, 100)
@@ -141,7 +142,7 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -200.0
+offset_left = -250.0
 offset_bottom = 100.0
 grow_horizontal = 0
 theme = ExtResource("9_a8y0u")
@@ -165,8 +166,10 @@ theme_override_styles/hover_pressed = ExtResource("9_trceg")
 theme_override_styles/disabled = ExtResource("9_trceg")
 theme_override_styles/focus = ExtResource("9_trceg")
 text = "DEC"
+alignment = 2
 
 [node name="TitleScreen" parent="Screens" unique_id=1268018315 node_paths=PackedStringArray("main", "new_game_screen") instance=ExtResource("9_ya4ey")]
+visible = false
 main = NodePath("../..")
 new_game_screen = NodePath("../NewGameScreen")
 

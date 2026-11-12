@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://dg5c5uk18l0pn"]
 
-[ext_resource type="FontFile" uid="uid://bfn7wybtdgu4j" path="res://fonts/Inconsolata/Inconsolata-Bold.ttf" id="1_oun8x"]
+[ext_resource type="FontFile" uid="uid://b4tv4h1bl4wjy" path="res://fonts/unicephalon/unicephalon.ttf" id="1_oun8x"]
 
 [resource]
 default_font = ExtResource("1_oun8x")
